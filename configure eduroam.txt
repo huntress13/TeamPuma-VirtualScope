@@ -1,0 +1,25 @@
+CHANGE THE wpa_supplicant.conf
+
+ADD:
+
+network={
+      ssid=""
+      priority=1
+      proto=RSN
+      key_mgmt=WPA-EAP
+      pairwise=CCMP
+      auth_alg=OPEN
+      eap=PEAP
+      identity=""
+      password=""
+      phase1="peaplabel=0"
+      phase2="auth=MSCHAPV2"
+      }
+
+SAVE & EXIT
+
+THEN RUN THIS TO TO ACTIVATE:
+sudo wpa_supplicant -i wlan0 -c /etc/wpa_supplicant/wpa_supplicant.conf
+
+if in the wpa_supplicant folder DO THIS:
+sudo wpa_supplicant -i wlan0 -c wpa_supplicant.conf
