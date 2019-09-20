@@ -56,7 +56,7 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href=""><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="file:///C:/Users/Babyhlee/Downloads/simple-and-light-sign-up-form%20(1)/simple-and-light-sign-up-form/dist/index.html"><span class="glyphicon glyphicon-log-in"></span>Logout</a></li>
 		
       </ul>
     </div>
@@ -70,8 +70,7 @@
     <div class="col-sm-8 text-left"> 
       <h1>Welcome</h1>
       <p>Hello Students! Welcome to virtualscope
-      <hr>
+      <hr><iframe width="560" height="315" src="https://www.youtube.com/embed/Q483u_Q0Blw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-
 </body>
 </html>
