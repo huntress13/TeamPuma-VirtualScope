@@ -10,7 +10,7 @@ host = "ftp.virtualscope.site"
 port = 21
 ftp.connect(host, port)
 ftp.login("teampuma","OURPASSWORD")
-ftp.cwd("microscope1images")
+ftp.cwd("public_html/images/microscope1/")
 
 #The interval between images HH:MM:SS
 imageInterval = "00:01:00 "
