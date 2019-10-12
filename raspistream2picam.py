@@ -5,11 +5,12 @@ from picamera import PiCamera
 from time import sleep
 
 #Connect to FTP server for file uploading
-#ftp = ftplib.FTP()
-#host = "ftp.site.site"
-#port = 21
-#ftp.connect(host, port)
-#FTP.cwd(pathname)
+ftp = ftplib.FTP()
+host = "ftp.virtualscope.site"
+port = 21
+ftp.connect(host, port)
+ftp.login("teampuma","OURPASSWORD")
+ftp.cwd("public_html/images/microscope1/")
 
 #The interval between images HH:MM:SS
 imageInterval = "00:01:00 "
@@ -23,17 +24,21 @@ streamCommand = "raspivid -o - -t 0 -w 1280 -h 720 -fps 30 -b 6000000 | ffmpeg -
 #Image number initialized to zero
 imageNumber = 0
 
+#Picture Folder
+picFolder = "/home/pi/MicroscopeImages/"
+
 while True:
-    subprocess.call(streamCommand, shell=True) #Run stream command
-    
-    picturePath = "pic" + str(imageNumber) + ".jpg" #Define picture path
+    #Run stream for designated time interval
+    subprocess.call(streamCommand, shell=True)
+    #Define picture path and capture photo
+    pictureName = "pic" + str(imageNumber) + ".jpg"
+    picturePath = picFolder + pictureName
     camera = PiCamera()
     sleep(0.5)
     camera.capture(picturePath)
     camera.close()
+    #Send pic via ftp
+    file = open(picturePath,"rb")                  # file to send
+    ftp.storbinary("STOR " + pictureName, file)     # send the file
+    file.close()                                    # close file and FTP
     imageNumber += 1
-    #Send pic via ftp ??
-    #file = open(picturePath,"rb")                  # file to send
-    #ftp.storbinary("STOR " + picturePath, file)     # send the file
-    #file.close()                                    # close file and FTP
-    
