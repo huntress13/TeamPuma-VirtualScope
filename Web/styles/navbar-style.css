@@ -1,0 +1,45 @@
+.bg-cover {
+  background-image: url("../images/microscope-ocular-lenses.jpg");
+  background-size: cover;
+  color: white;
+  background-position: center center;
+  position: relative;
+  z-index: -2;
+}
+
+.navbar-transparent{
+  background-color: rgba(255,255,255,.1);
+  text-shadow: none;
+}
+
+#nav2-jumbotron {
+  height: 100px;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.bg-dark{
+  background-color: #2a2c2e!important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: rgba(255,255,255,.75);
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: rgba(255,255,255,1);
+}
+
+.nav-text{
+  display: block;
+  padding: .5rem .5rem;
+  padding-top: 0.5rem;
+  padding-right: .5rem;
+  padding-bottom: 0.5rem;
+  padding-left: .5rem;
+  color: rgba(255,255,255,1);
+}
+  
