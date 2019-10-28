@@ -1,5 +1,5 @@
 <?php
-  require 'includes/sessionsconfig.php';
+  require 'includes/sessionsconfig.inc.php';
 
   if($userType != "admin"){
     header("Location: index.php");
