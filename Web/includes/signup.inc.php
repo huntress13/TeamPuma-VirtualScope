@@ -13,13 +13,13 @@ if (isset($_POST['signup-submit'])) {
 	$passwordRepeat = $_POST['pwd-repeat'];
 	//hard coded login type because majority of the time
 	//a new account created will be a student or non admin users
-	$loginType = "student";
+	$userType = "student";
 	//checks to see if classpwd is not empty then
 	//runs a db query to check to see if it exist
 	//if exist the code will count the rows
 	//the value should always be 1
 	if (!empty($classpwd)) {
-		$sql = "SELECT classPwd from classpwd where classPWd=?";
+		$sql = "SELECT class_password from class_passwords where class_password=?";
 		$stmt = mysqli_stmt_init($conn);
 		if(!mysqli_stmt_prepare($stmt, $sql)){
 			header("Location: ../signup.php?error=sqlerror");
@@ -78,7 +78,7 @@ if (isset($_POST['signup-submit'])) {
 				header("Location: ../signup.php?error=usertaken&starid=".$starid);
 				exit();
 			}else{
-				$sql = "INSERT INTO users (firstname, lastname, starid, pwd, username, logintype) VALUES (?,?,?,?,?,?)";
+				$sql = "INSERT INTO users (first_name, last_name, star_id, password, username, user_type) VALUES (?,?,?,?,?,?)";
 				$stmt = mysqli_stmt_init($conn);
 
 				if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -89,7 +89,7 @@ if (isset($_POST['signup-submit'])) {
 					//hashing with b crypt
 					//don't use outdated hasing such as SHA or MD6
 					$hashPwd = password_hash($password, PASSWORD_DEFAULT);
-					mysqli_stmt_bind_param($stmt, "ssssss", $firstname, $lastname, $starid, $hashPwd,$username, $loginType);
+					mysqli_stmt_bind_param($stmt, "ssssss", $firstname, $lastname, $starid, $hashPwd,$username, $userType);
 					mysqli_stmt_execute($stmt);
 
 					header("Location: ../index.php");
