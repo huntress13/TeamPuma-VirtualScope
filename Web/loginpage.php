@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation Bar -->
-<?php include 'navbarnolink.php'; ?>
+<?php include 'navbar.php'; ?>
 
 <!-- Login Form -->
 <div class="container" style="margin-top:30px">

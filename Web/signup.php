@@ -20,7 +20,7 @@
 <body>
 
 <!-- Navigation -->
-<?php include 'navbarnolink.php' ?>
+<?php include 'navbar.php' ?>
 
 <!-- partial:index.partial.html -->
 <div class="user">
