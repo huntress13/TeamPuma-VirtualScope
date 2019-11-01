@@ -44,7 +44,7 @@
                         $i = 0;
                         if($result = mysqli_query($conn, $sql)){
                             if(mysqli_num_rows($result) > 0){
-                                    echo "<table class=\"table table-striped\">";
+                                    echo "<table class=\"table table-striped text-center\">";
                                         echo "<tr>";
                                             echo "<th class=\"text-center\">First Name</th>";
                                             echo "<th class=\"text-center\">Last name</th>";
@@ -52,17 +52,13 @@
                                             echo "<th class=\"text-center\">Last Login Timestamp</th>";
                                         echo "</tr>";
                                     while($row = mysqli_fetch_array($result)){
-                                        echo "<form id=\"microscope-form". $i++ ."\" method=\"POST\" action=\"includes/updatescope.inc.php\" class=\"form-horizontal\">";
+                  
                                             echo "<tr>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['first_name'] . "\" name=\"first_name\" readonly></td>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['last_name'] . "\" name=\"last_name\" readonly></td>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['star_id'] . "\" name=\"star_id\" readonly></td>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['timestamp'] . "\" name=\"timestamp\" readonly></td>";
-
-                                              //echo "<td><button type=\"submit\" class=\"btn\" name=\"updatescope-submit\">Submit</button></td>";
-                                            echo "</tr>";
-                                        echo "</form>";
-
+                                                echo "<td>" . $row['first_name'] . "</td>";
+                                                echo "<td>" . $row['last_name'] . "</td>";
+                                                echo "<td>" . $row['star_id'] . "</td>";
+                                                echo "<td>" . $row['timestamp'] . "</td>";
+                                            echo "</tr>";    
                                 }
                                 echo "</table>";
                                 // Free result set
