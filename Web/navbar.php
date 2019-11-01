@@ -1,7 +1,7 @@
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
 <div class="container">
-  <a class="navbar-brand" href="index.php">VirtualScope</a>
+  <a class="navbar-brand" href="index.php"><img src="images/logo2.png" width=140 height=30></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>

@@ -1,5 +1,9 @@
 <?php
   require 'includes/sessionsconfig.inc.php';
+
+  if($userType != "admin"){
+    header("Location: index.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +25,7 @@
 
 <body>
 <!-- Navigation Bar -->
-<?php include 'yernavbar.php'; ?>
+<?php include 'navbar.php'; ?>
 <div class="row justify-content-center">
  <h1>Administrator Page</h1>
 </div>
@@ -33,19 +37,19 @@
      <div class="links">
    <ul>
     <ul>
-      <button onclick="window.location.href = 'viewlivestream.php'">Previous Projects</button>
+      <button onclick="window.location.href = 'viewlivestream.php'">Experiments</button>
     </ul>
        <ul>
-      <button onclick="window.location.href = 'loginpage.php'">Current Projects</button>
+      <button onclick="window.location.href = 'viewlivestream.php'">Archive</button>
     </ul>
        <ul>
-      <button onclick="window.location.href = 'viewlivestream.php'">Microscope Configurations</button>
+      <button onclick="window.location.href = 'microscopeconfig.php'">Microscope Configurations</button>
     </ul>
        <ul>
-      <button onclick="window.location.href = 'viewlivestream.php'">View Logins</button>
+      <button onclick="window.location.href = 'tracklogin.php'">View Logins</button>
     </ul>
        <ul>
-      <button onclick="window.location.href = 'viewlivestream.php'">Edit Class Passwords</button>
+      <button onclick="window.location.href = 'classpasswordpage.php'">Edit Class Passwords</button>
     </ul>
 
    </ul>

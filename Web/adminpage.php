@@ -1,5 +1,5 @@
 <?php
-  //require 'includes/sessionsconfig.php';
+  require 'includes/sessionsconfig.php';
 ?>
 
 <!DOCTYPE html>
