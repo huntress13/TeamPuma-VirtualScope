@@ -21,6 +21,10 @@
   margin-bottom: 0px;
 }
 
+.navbar-brand{
+  margin-right: 0px !important;
+}
+
 .bg-dark{
   background-color: #2a2c2e!important;
 }
