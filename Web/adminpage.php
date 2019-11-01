@@ -27,8 +27,9 @@
 </div>
 
  <div class="container" style="margin-top:15px">
-  <div class="row justify-content-center">
-    <div id="login-jumbotron" class ="jumbotron" style="border-radius: 15px;">
+  <div class="card" style="margin-bottom:15px">
+
+  <div class="card-header">
      <div class="links">
    <ul>
     <ul>
@@ -49,12 +50,9 @@
 
    </ul>
  </div>
-
-  </div>
 </div>
 </div>
-
-
+</div>
 
 </body>
 </html>
