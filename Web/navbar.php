@@ -8,19 +8,13 @@
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="viewlivestream.php">Stream</a>
+        <a class="nav-link" href="index.php">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="viewlivestream2.php">StreamV2</a>
-      </li>   
+        <a class="nav-link" href="homepage.php">Experiments</a>
+      </li>
       <li class="nav-item">
-        <a class="nav-link" href="viewlivestream3.php">StreamV3</a>
-      </li>  
-      <li class="nav-item">
-        <a class="nav-link" href="viewlive5.php">StreamV4</a>
-      </li>  
-      <li class="nav-item">
-        <a class="nav-link" href="viewphoto2.php">Photos</a>
+        <a class="nav-link" href="viewphoto2.php">Archive</a>
       </li>
     </ul>
 
@@ -28,7 +22,7 @@
         if($loggedIn){
             echo'
             <ul class="navbar-nav ml-auto">
-              <li class="nav-text">
+              <li class="nav-text"><i class="fas fa-user"></i>
               '. $username .'
               </li>';
               if($userType == "admin"){
