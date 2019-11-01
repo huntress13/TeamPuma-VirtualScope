@@ -20,6 +20,7 @@ body {
   display: block;
   width: 100%;
   padding: 20px;
+  margin-top:10px;
   font-family: "Roboto";
   -webkit-appearance: none;
   outline: 0;
@@ -111,6 +112,13 @@ body {
 
 #home-jumbotron {
   text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-shadow: 2px 2px #000;
+}
+
+#splash-jumbotron {
+  text-align: center;
   padding-top: 10rem;
   padding-bottom: 10rem;
   text-shadow: 2px 2px #000;
@@ -145,4 +153,12 @@ body {
 .card-body .img-thumbnail {
   margin-top: 5px;
   margin-bottom: 5px;
+}
+
+h1{
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: white;
+  text-shadow: 2px 2px #000;
 }
