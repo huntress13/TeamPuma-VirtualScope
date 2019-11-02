@@ -33,6 +33,7 @@
           </div>
           <hr>
           <button class="btn" name ="viewphoto-submit" type="submit" onclick="window.location.href='./viewphoto2.php'">View Archived Photos</button>
+          <button class="btn" name ="googledocs-submit" type="submit" onclick="window.open('https://docs.google.com/forms/d/1Oa1WRS4LZLZQ9nuTjRTILW01rp9zHC7eG6cFWW6NvHs/edit')">Complete Experiment WorkSheet</button>
         </div>
       </div>
       <div class="card" style="margin-top: 30px; margin-bottom: 30px">
