@@ -1,5 +1,9 @@
 <?php
-  require 'includes/sessionsconfig.inc.php';
+  require '../../includes/sessionsconfig.inc.php';
+  require '../../includes/functions.inc.php';
+
+  //Get microscope name
+  $microscopeName = getMyMicroscopeName(dirname(__FILE__));
 ?>
 
 <!DOCTYPE html>
@@ -14,28 +18,28 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="styles/photopage-style.css">
-  <link rel="stylesheet" href="styles/navbar-style.css">
+  <link rel="stylesheet" href="../../styles/photopage-style.css">
+  <link rel="stylesheet" href="../../styles/navbar-style.css">
 </head>
 <body>
 
 <!-- Navigation -->
-<?php include 'navbar.php' ?>
+<?php include '../../navbar.php' ?>
 
 <!-- Content -->
 <div class="container" style="margin-top:30px">
     <div class="card" style="margin-bottom:30px">
 
         <div class="card-header">
-            Images from Microscope 1
+            Images from <?php echo ucfirst($microscopeName) ?>
+            <a href="./viewlivestream.php" style="float: right;">View the stream</a>
         </div>
 
         <div class="card-body">
             <div class="container">
                 <div class="row justify-content-center">
                     <?php
-                        include 'includes/functions.inc.php';
-                        displayImages(getcwd().'\images');
+                        displayImages('./images');
                     ?>
                 </div>
             </div>
