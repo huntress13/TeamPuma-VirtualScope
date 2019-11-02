@@ -38,7 +38,7 @@
       <div class="card">
         <div class="card-header">Microscope 1</div>
         <div class="card-body">
-          <img class="img-thumbnail img-fluid" src="images/Biology1.jpg" style="width:100%">
+          <img class="img-thumbnail img-fluid" src="<?php echo $homepath ?>images/Biology1.jpg" style="width:100%">
             Some generic Text
           <a href="microscopes/microscope1/viewlivestream.php" class="btn btn-info" role="button">View Live Stream</a>
           <a href="microscopes/microscope1/viewphotos.php" class="btn btn-info" role="button">View Photos</a>
@@ -49,7 +49,7 @@
       <div class="card">
         <div class="card-header">Microscope 2</div>
         <div class="card-body">
-          <img class="img-thumbnail img-fluid" src="images/Biology2.jpg" style="width:100%">
+          <img class="img-thumbnail img-fluid" src="<?php echo $homepath ?>images/biology2.jpg" style="width:100%">
             Some other generic Text
           <a href="microscopes/microscope2/viewlivestream.php" class="btn btn-info" role="button">View Live Stream</a>
           <a href="microscopes/microscope2/viewphotos.php" class="btn btn-info" role="button">View Photos</a>
