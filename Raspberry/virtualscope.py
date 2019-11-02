@@ -5,6 +5,7 @@ from picamera import PiCamera
 from time import sleep
 import mysql.connector
 from mysql.connector import Error
+import datetime from datetime
 
 #Define time formatting function
 def format_time(minutes):
@@ -29,7 +30,6 @@ try:
     select_stmt = "SELECT picture_time_increment FROM microscopes WHERE microscope_name = %(microscope_name)s"
     cursor.execute(select_stmt, { 'microscope_name': my_name })
     time_increment = cursor.fetchone()[0]
-    print("The time increment is:", time_increment)
 
 #Error connecting -> Use default time_increment
 except Error as e:
@@ -41,7 +41,6 @@ finally:
   if (connection.is_connected()):
     cursor.close()
     connection.close()
-    print("MySQL connection is closed")
 
 #Connect to FTP server for file uploading
 ftp = ftplib.FTP()
