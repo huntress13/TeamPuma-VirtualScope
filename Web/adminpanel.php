@@ -30,8 +30,8 @@
  <h1>Administrator Page</h1>
 </div>
 
- <div class="container" style="margin-top:15px">
-  <div class="card" style="margin-bottom:15px">
+ <div class="container" style="margin-top:1px">
+  <div class="card" style="margin-bottom:1px">
 
   <div class="card-header">
      <div class="links">
@@ -59,5 +59,8 @@
 </div>
 
 </body>
+
 </html>
+
+
 

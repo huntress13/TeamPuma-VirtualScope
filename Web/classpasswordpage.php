@@ -1,5 +1,9 @@
 <?php
-  //require 'includes/sessionsconfig.php';
+  require 'includes/sessionsconfig.inc.php';
+
+  if($userType != "admin"){
+    header("Location: index.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +26,7 @@
 
 <body>
 <!-- Navigation Bar -->
-<?php include 'yernavbar.php'; ?>
+<?php include 'navbar.php'; ?>
 <div class="row justify-content-center">
  <h1>Class Password Page</h1>
 </div>
