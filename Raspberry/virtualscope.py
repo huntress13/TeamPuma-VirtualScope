@@ -49,7 +49,7 @@ host = "ftp.virtualscope.site"
 port = 21
 ftp.connect(host, port)
 ftp.login("teampuma","1#%ekd%YlaG*")
-ftp.cwd("public_html/images/microscope1/")
+ftp.cwd("public_html/microscopes/" + my_name + "/images/")
 
 #The interval between images in HH:MM:SS format
 #The SPACE at the end is important!
