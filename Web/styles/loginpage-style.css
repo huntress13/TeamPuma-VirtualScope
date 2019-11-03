@@ -179,13 +179,11 @@ body {
   margin-bottom: 30px;
 }
 
-#login-form{
-  margin-top: 50px;
-}
-
 #login-jumbotron{
   margin-top: 30px;
   margin-bottom: 30px;
+  padding-top:2rem;
+  padding-bottom:2rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 16px;
 }
@@ -223,6 +221,13 @@ body {
   text-align: center;
   padding-top: 10rem;
   padding-bottom: 10rem;
+  text-shadow: 2px 2px #000;
+}
+
+#logintop-jumbotron{
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   text-shadow: 2px 2px #000;
 }
 

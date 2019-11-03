@@ -74,18 +74,18 @@ body {
 .btn {
   display: block;
   width: 100%;
-  padding: 20px;
+  height:80px;
   font-family: "Roboto";
-  -webkit-appearance: none;
+  text-align: center;
   outline: 0;
   border: 0;
   color: white;
-  background: #ABA194;
+  background: #A2C7E5;
   transition: 0.3s;
 }
-
 .btn:hover {
-  background: #a09486;
+  color: white;
+  background: #49D49D;
 }
 
 @-webkit-keyframes NO {
@@ -221,8 +221,29 @@ body {
 
 #home-jumbotron {
   text-align: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  text-shadow: 2px 2px #000;
+}
+
+#splash-jumbotron {
+  text-align: center;
   padding-top: 10rem;
   padding-bottom: 10rem;
+  text-shadow: 2px 2px #000;
+}
+
+#signup-jumbotron {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  text-shadow: 2px 2px #000;
+}
+
+#login-jumbotron {
+  text-align: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
   text-shadow: 2px 2px #000;
 }
 
