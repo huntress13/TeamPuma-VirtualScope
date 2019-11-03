@@ -23,12 +23,18 @@
 <?php include 'navbar.php'; ?>
 
 <!-- Login Form -->
+<div id="logintop-jumbotron" class="jumbotron-fluid jumbotron bg-cover">
+  <div class="overlay"></div>
+  <div class="container">
+    <h1 class="display-3 mb-1">Log In</h1>
+    <p class="lead"><span>Log into your account</span></p>
+  </div>
+</div>
+
 <div class="container" style="margin-top:30px">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
       <div id="login-jumbotron" class ="jumbotron" style="border-radius: 15px;">
-        <span style="text-align: center"><h1>Login</h1>
-        <br/></span>
           <form id="login-form" method="POST" action="includes/login.inc.php" class="needs-validation" novalidate>
           <label for="uname">Username:</label>  
           <div class="input-group mb-3">
