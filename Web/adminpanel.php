@@ -26,36 +26,32 @@
 <body>
 <!-- Navigation Bar -->
 <?php include 'navbar.php'; ?>
-<div class="row justify-content-center">
- <h1>Administrator Page</h1>
-</div>
 
- <div class="container" style="margin-top:1px">
-  <div class="card" style="margin-bottom:1px">
+<!-- Content -->
+<div class="container" style="margin-top:30px">
+  <div class="card" style="margin-bottom:30px">
+    <div class="card-header">
+        Administrator Panel
+        <a href="index.php" style="float: right;">Back to home</a>
+    </div>
 
-  <div class="card-header">
-     <div class="links">
-   <ul>
-    <ul>
-      <button onclick="window.location.href = 'viewlivestream.php'">Experiments</button>
-    </ul>
-       <ul>
-      <button onclick="window.location.href = 'viewlivestream.php'">Archive</button>
-    </ul>
-       <ul>
-      <button onclick="window.location.href = 'microscopeconfig.php'">Microscope Configurations</button>
-    </ul>
-       <ul>
-      <button onclick="window.location.href = 'tracklogin.php'">View Logins</button>
-    </ul>
-       <ul>
-      <button onclick="window.location.href = 'classpasswordpage.php'">Edit Class Passwords</button>
-    </ul>
-
-   </ul>
- </div>
-</div>
-</div>
+    <div class="card-body">
+        <div class="container">
+          <dl class="row">
+            <dt class="col-sm-3"><button type="submit" class="btn" name="classpasswords"  onclick="window.location.href='classpasswordpage.php'">Class Passwords</button></dt>
+            <dd class="col-sm-9 my-auto">View and modify class passwords</dd>
+          
+            <dt class="col-sm-3"><button type="submit" class="btn" name="userlogins"  onclick="window.location.href='tracklogin.php'">Logins</button></dt>
+            <dd class="col-sm-9 my-auto">
+              Track user logins
+            </dd>
+          
+            <dt class="col-sm-3"><button type="submit" class="btn" name="configuremicroscopes"  onclick="window.location.href='microscopeconfig.php'">Microscopes</button></dt>
+            <dd class="col-sm-9 my-auto">View and configure microscopes</dd>
+          </dl>
+        </div>
+    </div>
+  </div>
 </div>
 
 </body>

@@ -26,38 +26,40 @@
 <!-- Navigation Bar -->
 <?php include 'navbar.php'; ?>
 
-<div class="row justify-content-center">
- <h1>Class Password</h1>
-</div>
+<div class="container" style="margin-top:30px">
+  <div class="card" style="margin-bottom:30px">
+    <div class="card-header">
+        Class Passwords
+        <a href="adminpanel.php" style="float: right;">Back to admin panel</a>
+    </div>
+
+  <div class="card-body">
+    <div class="container">
 
 <!-- Modify class password -->
  <div class="container" style="margin-top:1px">
-  <div class="row justify-content-center">
-    <div id="login-jumbotron" class ="jumbotron" style="border-radius: 5px;">
-      <span style="text-align: center"><h4>Modify/Add Class Password</h4><br/></span>
-      <form class="form-classpassword" action="includes/classpassword.inc.php"
-      method="post">
-
-      <div class = "form_group">
-        <input type="text" name = "course_name" placeholder="Course Name" class="form__input" />
-        <input type="text" name = "section" placeholder="Section" class="form__input" />
-        <input type="text" name = "class_password" placeholder="Class Password" class="form__input" />
-      </div>
-      <button class="btn" name="classpassword-submit" type="submit">Submit</button><br>
-      </form>
-    </div>
-  </div>
+      <h5>Add Class Password</h5>
+        <form id="add-password" class="form-inline" action="includes/classpassword.inc.php" method="post">
+        <div class="form-group">
+          <input type="text" name = "course_name" placeholder="Course Name" class="form__input" />
+        </div>
+        <div class="form-group">
+          <input type="text" name = "section" placeholder="Section" class="form__input" />
+        </div>
+        <div class="form-group">
+          <input type="text" name = "class_password" placeholder="Class Password" class="form__input" />
+        </div>
+        <div class="form-group">
+          <button class="btn" name="classpassword-submit" type="submit" class="form__input" >Submit</button>
+        </div>
+        </form>
 </div>
 
 
 <!-- DISPLAY class password -->
  <div class="container" style="margin-top:20px">
   <!-- Title -->
-  <div class = "card">
-  <div class="card-header">Class Password List
-  </div>
-
-  <div class="card-body">
+<h5>Existing Passwords</h5>
     <div class="container">
       <div class="row">
         <div class="table-responsive">
@@ -94,13 +96,13 @@
     </div>
   </div>
 </div>
-</div>
+
 
 </div>
+</div>
+</div>
+</div>
 
-<!-- partial -->
-  <script  src="./script.js"></script>
-  
 </body>
 </html>
 

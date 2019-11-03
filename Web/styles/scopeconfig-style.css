@@ -249,3 +249,7 @@
   .table td {
     vertical-align: middle;
   }
+
+  .form-group{
+    margin-right:10px;
+  }
