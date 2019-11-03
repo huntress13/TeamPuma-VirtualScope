@@ -2,6 +2,9 @@
   require '../../includes/sessionsconfig.inc.php';
   require '../../includes/dbh.inc.php';
   require '../../includes/functions.inc.php';
+  if(!$loggedIn){
+    header("Location: ../../index.php");
+  }
 
   //Get the microscope name and query the database for microscope information
   $microscopeName = getMyMicroscopeName(dirname(__FILE__));

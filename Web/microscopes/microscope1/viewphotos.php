@@ -2,6 +2,9 @@
   require '../../includes/sessionsconfig.inc.php';
   require '../../includes/functions.inc.php';
 
+  if(!$loggedIn){
+    header("Location: ../../index.php");
+  }
   //Get microscope name
   $microscopeName = getMyMicroscopeName(dirname(__FILE__));
 ?>

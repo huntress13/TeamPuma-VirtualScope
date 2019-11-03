@@ -16,9 +16,11 @@ $homepath = 'http://'.$_SERVER['SERVER_NAME'].'/';
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $homepath?>homepage.php">Experiments</a>
       </li>
+      <!-- TODO
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $homepath?>viewphoto2.php">Archive</a>
       </li>
+      -->
     </ul>
 
     <?php 
