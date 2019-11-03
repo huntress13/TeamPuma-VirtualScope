@@ -48,13 +48,8 @@
   </div>
 </div>
 
-<footer class="footer bg-dark footer-dark" style="padding-top: 30px; padding-bottom: 10px; margin-top: 60px">
-  <div class="container">
-    <span class="text-muted">&copy 2019 Team Puma<br/>
-      <a href="https://www.metrostate.edu">Metropolitan State University</a><br/>
-      <a href="#">Contact Us</a></span>
-  </div>
-</footer>
+<!-- Footer -->
+<?php include 'footer.php' ?>
 
 </body>
 </html>
