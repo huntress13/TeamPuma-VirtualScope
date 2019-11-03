@@ -34,30 +34,34 @@
   <h1>Today's BIG Question</h1>
   <p>On microscope 1 we have the blah blah blah. On microscope 2 we have the control</p>
   <div class="row  justify-content-center">
-    <div class="col-4">
+    <div class="col-sm-8 col-md-4">
       <div class="card">
         <div class="card-header">Microscope 1</div>
         <div class="card-body">
-          <img class="img-thumbnail img-fluid" src="images/Biology1.jpg" style="width:100%">
+          <img class="img-thumbnail img-fluid" src="<?php echo $homepath ?>images/Biology1.jpg" style="width:100%">
             Some generic Text
-          <a href="viewlivestream.php" class="btn btn-info" role="button">View Live Stream</a>
-          <a href="viewphoto2.php" class="btn btn-info" role="button">View Photos</a>
+          <a href="microscopes/microscope1/viewlivestream.php" class="btn btn-info" role="button">View Live Stream</a>
+          <a href="microscopes/microscope1/viewphotos.php" class="btn btn-info" role="button">View Photos</a>
         </div>
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-sm-8 col-md-4">
       <div class="card">
         <div class="card-header">Microscope 2</div>
         <div class="card-body">
-          <img class="img-thumbnail img-fluid" src="images/Biology1.jpg" style="width:100%">
+          <img class="img-thumbnail img-fluid" src="<?php echo $homepath ?>images/biology2.jpg" style="width:100%">
             Some other generic Text
-          <a href="viewlivestream.php" class="btn btn-info" role="button">View Live Stream</a>
-          <a href="viewphoto2.php" class="btn btn-info" role="button">View Photos</a>
+          <a href="microscopes/microscope2/viewlivestream.php" class="btn btn-info" role="button">View Live Stream</a>
+          <a href="microscopes/microscope2/viewphotos.php" class="btn btn-info" role="button">View Photos</a>
         </div>
       </div>
     </div>
   </div>
 </div>
+
+<!-- Footer -->
+<?php include 'footer.php' ?>
+
 
 </body>
 </html>
