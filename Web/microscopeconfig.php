@@ -43,6 +43,7 @@
                         $sql = "SELECT * FROM microscopes";
                         $i = 0;
                         if($result = mysqli_query($conn, $sql)){
+                            $numberOfRows = mysqli_num_rows($result);
                             if(mysqli_num_rows($result) > 0){
                                     echo "<table class=\"table table-striped text-center\">";
                                         echo "<tr>";
@@ -80,16 +81,23 @@
                         } else{
                             echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
                         }
-                        
-                        // Close connection
-                        mysqli_close($conn);
                         ?>
                     </div>
+                    <form id="add-microscope" method="POST" action="includes/addscope.inc.php">
+                        <input type="hidden" id="nextNumber" name="next_microscope_number" value="<?php echo ++$numberOfRows ?>">
+                        <button type="submit" class="btn" name="addscope-submit">Add Microscope</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
+<?php 
+    // Close connection
+    mysqli_close($conn);
+?>
 
 </body>
 </html>
