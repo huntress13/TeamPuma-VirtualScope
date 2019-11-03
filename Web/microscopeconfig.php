@@ -44,47 +44,29 @@
                         $i = 0;
                         if($result = mysqli_query($conn, $sql)){
                             if(mysqli_num_rows($result) > 0){
-                                    echo "<table class=\"table table-striped\">";
+                                    echo "<table class=\"table table-striped text-center\">";
                                         echo "<tr>";
-                                            echo "<th class=\"text-center\" width=\"10%\">ID</th>";
                                             echo "<th class=\"text-center\">Microscope name</th>";
                                             echo "<th class=\"text-center\">Experiment name</th>";
                                             echo "<th class=\"text-center\">Course name</th>";
                                             echo "<th class=\"text-center\">Availability</th>";
                                             echo "<th class=\"text-center\">Photo Interval</th>";
                                             echo "<th class=\"text-center\">State</th>";
-                                            echo "<th class=\"text-center\">Edit</th>";
+                                            echo "<th class=\"text-center\"></th>";
                                         echo "</tr>";
                                     while($row = mysqli_fetch_array($result)){
-                                        echo "<form id=\"microscope-form". $i++ ."\" method=\"POST\" action=\"includes/updatescope.inc.php\" class=\"form-horizontal\">";
+                                        echo "<form id=\"microscope-form". $i++ ."\" method=\"POST\" action=\"editmicroscope.php\" class=\"form-horizontal\">";
+                                            echo '<input type="hidden" id="microscopeID" name="mid" value="'. $row['mid'] . '">';
                                             echo "<tr>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['mid'] . "\" name=\"mid\" readonly></td>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['microscope_name'] . "\" name=\"microscope_name\"></td>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['experiment_name'] . "\" name=\"experiment_name\"></td>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['course_name'] . "\" name=\"course_name\"></td>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['availability'] . "\" name=\"availability\"></td>";
-                                                echo "<td><input type=\"text\" class=\"form-control\" value=\"" . $row['picture_time_increment'] . "\" name=\"picture_time_increment\"></td>";
+                                                echo "<td>" . $row['microscope_name'] . "</td>";
+                                                echo "<td>" . $row['experiment_name'] . "</td>";
+                                                echo "<td>" . $row['course_name'] . "</td>";
+                                                echo "<td>" . $row['availability'] . "</td>";
+                                                echo "<td>" . $row['picture_time_increment'] . "</td>";
+                                                echo "<td>" . $row['state'] . "</td>";
                                                 
-                                                if($row['state'] == 'active'){
-                                                    echo "<td><select class=\"form-control\" name=\"state\">
-                                                            <option value=\"active\" selected=\"selected\">Active</option>
-                                                            <option value=\"inactive\">Inactive</option>
-                                                        </select></td>";
-                                                }
-                                                else if($row['state'] == 'inactive'){
-                                                    echo "<td><select class=\"form-control\" name=\"state\">
-                                                            <option value=\"active\">Active</option>
-                                                            <option value=\"inactive\" selected=\"selected\">Inactive</option>
-                                                         </select></td>";
-                                                }
-                                                else{
-                                                    echo "<td><select class=\"form-control\" name=\"state\">
-                                                            <option value=\"active\">Active</option>
-                                                            <option value=\"inactive\" selected=\"selected\">Inactive</option>
-                                                            </select></td>";
-                                                }
                                                 
-                                                echo "<td><button type=\"submit\" class=\"btn\" name=\"updatescope-submit\">Submit</button></td>";
+                                                echo "<td><button type=\"submit\" class=\"btn\" name=\"editscope-submit\">Edit</button></td>";
                                             echo "</tr>";
                                         echo "</form>";
                                     
