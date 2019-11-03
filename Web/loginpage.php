@@ -52,11 +52,6 @@
               <input type="password" class="form-control" id="pwd" placeholder="Type your password" name="pwd" required>
               <div class="invalid-feedback">Please fill out this field.</div>
             </div>
-            <div class="form-group form-check">
-              <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" name="remember"> Remember me
-              </label>
-            </div>
             <button type="submit" class="btn" name="login-submit">Submit</button>
           </form>
           <div class="container text-right">

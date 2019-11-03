@@ -3,6 +3,10 @@
   require '../../includes/dbh.inc.php';
   require '../../includes/functions.inc.php';
 
+  if(!$loggedIn){
+    header("Location: ../../index.php");
+  }
+
   //Get the microscope name and query the database for microscope information
   $microscopeName = getMyMicroscopeName(dirname(__FILE__));
   $sql = "SELECT experiment_name, course_name, availability FROM microscopes WHERE microscope_name = ?";
