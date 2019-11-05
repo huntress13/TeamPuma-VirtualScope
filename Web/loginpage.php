@@ -31,7 +31,7 @@
   </div>
 </div>
 
-<div class="container" style="margin-top:30px">
+<div class="container" style="margin-top:50px">
   <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6">
       <div id="login-jumbotron" class ="jumbotron" style="border-radius: 15px;">
