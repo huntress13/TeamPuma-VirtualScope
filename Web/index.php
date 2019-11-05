@@ -43,7 +43,7 @@
            To learn more about these see our current list of what each scope is viewing, click here!</p>
     </div>
     <div class="col-md-4">
-      Hello World 2!
+
     </div>
   </div>
 </div>
