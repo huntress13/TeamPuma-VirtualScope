@@ -4,7 +4,7 @@
   require '../../includes/functions.inc.php';
 
   if(!$loggedIn){
-    header("Location: ../../index.php");
+    header("Location: ../../loginpage.php");
   }
 
   //Get the microscope name and query the database for microscope information
