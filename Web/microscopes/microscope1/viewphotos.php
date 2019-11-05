@@ -3,7 +3,7 @@
   require '../../includes/functions.inc.php';
 
   if(!$loggedIn){
-    header("Location: ../../index.php");
+    header("Location: ../../loginpage.php");
   }
   //Get microscope name
   $microscopeName = getMyMicroscopeName(dirname(__FILE__));

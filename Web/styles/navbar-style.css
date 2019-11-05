@@ -47,3 +47,11 @@
   color: rgba(255,255,255,1);
 }
   
+.footer a{
+  color: #6c757d;
+}
+
+.footer a:hover{
+  color: #91989e;
+  text-decoration: none;
+}
