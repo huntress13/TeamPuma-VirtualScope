@@ -1,11 +1,12 @@
 import os
 import subprocess
 import ftplib
+import signal
 from picamera import PiCamera
 from time import sleep
 import mysql.connector
 from mysql.connector import Error
-import datetime from datetime
+import datetime
 
 #Define time formatting function
 def format_time(minutes):
@@ -34,7 +35,7 @@ try:
 #Error connecting -> Use default time_increment
 except Error as e:
   print("Error while connecting to MySQL", e)
-  time_increment = 10
+  time_increment = 3
   
 #Close the database connection
 finally:
@@ -58,25 +59,28 @@ image_interval = format_time(time_increment)
 stream_link = "rtmp://a.rtmp.youtube.com/live2/0d18-twub-tqg7-3t7w"
 
 #The concatonated command for streaming
-stream_command = "raspivid -o - -t 0 -w 1280 -h 720 -fps 30 -b 6000000 | ffmpeg -re -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv -t " + image_interval + stream_link
+stream_command = "raspivid -o - -t 0 -w 1280 -h 720 -fps 30 -b 6000000 | ffmpeg -re -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv " + stream_link
 
 #Picture folder where photos are saved on the Pi
 pic_folder = "/home/pi/MicroscopeImages/"
 
 while True:
   #Run stream for designated time interval
-  subprocess.call(stream_command, shell=True)
+  pro = subprocess.Popen(stream_command, stdout=subprocess.PIPE, shell=True, preexec_fn=os.setsid) 
+
+  sleep((time_increment * 60)+3)
+  os.killpg(os.getpgid(pro.pid), signal.SIGTERM)
   
   #Define picture path and capture photo
-  now = datetime.now() #Get timestamp
+  now = datetime.datetime.now() #Get timestamp
   picture_name = now.strftime("date_%m-%d-%Y_time_%H-%M-%S.jpg") #format image name
   picture_path = pic_folder + picture_name
   camera = PiCamera()
-  sleep(0.5)
-  camera.capture(picture_path, resize=(960, 540)) #take pictue and resize
+  sleep(0.75)
+  camera.capture(picture_path, resize=(1230, 924)) #take pictue and resize
   camera.close()
   
   #Send pic via ftp
   file = open(picture_path,"rb")                  # file to send
   ftp.storbinary("STOR " + picture_name, file)     # send the file
-  file.close()                                    # close file and FTP
+  file.close()  
