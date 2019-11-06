@@ -34,17 +34,20 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8">
+    <div class="col-md-6">
       <h2>What is VirtualScope?</h2>
       <p>VirtualScope is your gateway to accessing Biological experiments from anywhere!
          Here we have a sample being viewed using either a 10x, 40x, or 100x oil objective on our microscope coming to you
           through the internet via a Raspberry Pi. Experiments often require a test case as well as a control which means 
           we are capable of viewing multiple microscopes at the same time which may be receiving different treatments.
-           To learn more about these see our current list of what each scope is viewing, click here!</p>
+           To learn more about these see our current list of what each scope is viewing, <a href="homepage.php">click here!</a></p>
     </div>
-    <div class="col-md-4">
-
-    </div>
+    <div class="col-md-6">
+      <div class="videoWrapper">
+              <!-- Put YOUTUBE link below -->
+              <iframe width="560" height="349" src="https://www.youtube.com/embed/JY_0kaKBtJ4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+      </div>
   </div>
 </div>
 
