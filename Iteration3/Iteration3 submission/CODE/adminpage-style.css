@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border-radius: 8px;
+  background-color: grey;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  margin: 10px;
+}

@@ -5,14 +5,14 @@ function displayImages($directory){
     $filenames = scandir($dir);
     $numOfFiles = sizeof($filenames);
 
-    for($i = 0; $i < sizeof($filenames)-2; $i++){
+    for($i = sizeof($filenames) -1; $i > 1; $i--){
             echo '
                 <div class="col-sm-6 col-md-4">
-                        <a href="'.$dir.'/'.$filenames[$i+2].'" target="_blank">
-                            <img class="img-thumbnail img-fluid" src="'.$dir.'/'.$filenames[$i+2].'" style="width:100%">
+                        <a href="'.$dir.'/'.$filenames[$i].'" target="_blank">
+                            <img class="img-thumbnail img-fluid" src="'.$dir.'/'.$filenames[$i].'" style="width:100%">
                         </a>
                         <div>
-                            <p>'.$filenames[$i+2].'</p>
+                            <p>'.substr($filenames[$i], 0, strrpos($filenames[$i], ".")).'</p>
                         </div>
                 </div>';
     }
@@ -28,7 +28,7 @@ function displayLatest($directory, $number){
         $firstImage = 2;
     }
 
-    for($i = $firstImage; $i < sizeof($filenames); $i++){
+    for($i = sizeof($filenames)-1; $i >= $firstImage; $i--){
         echo '
                     <a href="'.$dir.'/'.$filenames[$i].'" target="_blank">
                         <img class="img-thumbnail img-fluid" src="'.$dir.'/'.$filenames[$i].'" style="width:100%">
