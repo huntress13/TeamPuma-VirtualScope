@@ -53,14 +53,16 @@
                         mysqli_stmt_prepare($stmt, $sql);
                         mysqli_stmt_bind_param($stmt, "s", $scopeID);
                         mysqli_stmt_execute($stmt);
-                        if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8)){
+                        if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8, $col9)){
                                 mysqli_stmt_fetch($stmt);
                                 $microscopeName = $col2; //Define the microscope name
                                 $experimentName = $col3; //Define the experiment name
                                 $courseName = $col4; // Define the course name
                                 $availability = $col5; // Define the availability
                                 $photoInterval = $col6; // Define the photo interval
+                                $youtube = $col7; // Define the youtube link
                                 $state = $col8; // Define the state
+                                $description = $col9; //Define description
                                 
                                 // Close the statement
                                 mysqli_stmt_close($stmt);
@@ -92,33 +94,46 @@
                                         <input type="text" class="form-control" id="availability" value="'. $availability .'" name="availability" required>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
+                                    <label for="pwd">Youtube Link:</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="youtube" value="'. $youtube .'" name="youtube" required>
+                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                    </div>
                                     <label for="pwd">Photo Interval:</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" id="picture_time_increment" value="'. $photoInterval .'" name="picture_time_increment" required>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
-                                    <label for="pwd">State:</label>';
+                                    <label for="pwd">State:</label>
+                                    <div class="input-group mb-3">';
                                     
                                     if($state == 'active'){
                                         echo "<select class=\"form-control\" name=\"state\">
                                                 <option value=\"active\" selected=\"selected\">Active</option>
                                                 <option value=\"inactive\">Inactive</option>
-                                            </select>";
+                                            </select>
+                                            </div>";
                                     }
                                     else if($state == 'inactive'){
                                         echo "<select class=\"form-control\" name=\"state\">
                                                 <option value=\"active\">Active</option>
                                                 <option value=\"inactive\" selected=\"selected\">Inactive</option>
-                                             </select>";
+                                             </select>
+                                             </div>";
                                     }
                                     else{
                                         echo "<select class=\"form-control\" name=\"state\">
                                                 <option value=\"active\">Active</option>
                                                 <option value=\"inactive\" selected=\"selected\">Inactive</option>
-                                                </select>";
+                                                </select>
+                                                </div>";
                                     }
 
-                                    echo '<br/>';
+                                    echo    '<label for="description">Description:</label>
+                                            <div class="input-group mb-3">
+                                                <textarea class="form-control" name="description" rows="10" cols="80" wrap="soft">'. $description .'
+                                                </textarea>
+                                            </div>';
                                     echo '<button type="submit" class="btn" name="updatescope-submit">Submit</button>
                                 </form>';
                         ?>

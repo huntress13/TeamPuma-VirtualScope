@@ -8,7 +8,9 @@ if(isset($_POST['updatescope-submit'])){
     $courseName = $_POST['course_name'];
     $availability = $_POST['availability'];
     $timeIncrement = $_POST['picture_time_increment'];
-    $state = $_POST['state'];
+	$state = $_POST['state'];
+	$youtube = $_POST['youtube'];
+	$description = $_POST['description'];
 
 	if (empty($mID) || empty($microscopeName) || empty($timeIncrement)){
 		header("Location: ../microscopeconfig.php?error=emptyfield");
@@ -20,7 +22,9 @@ if(isset($_POST['updatescope-submit'])){
                         course_name=?,
                         availability=?,
                         picture_time_increment=?,
-                        state=?
+						youtube=?,
+                        state=?,
+						description=?
                     WHERE mid=?";
 			$stmt = mysqli_stmt_init($conn);
 			if (!mysqli_stmt_prepare($stmt, $sql)) {
@@ -28,7 +32,8 @@ if(isset($_POST['updatescope-submit'])){
 				header("Location: ../index.php?error=sqlerror");
 				exit();
 			}else{
-				mysqli_stmt_bind_param($stmt, "ssssssd", $microscopeName, $experimentName, $courseName, $availability, $timeIncrement, $state, $mID);
+				mysqli_stmt_bind_param($stmt, "ssssssssd", $microscopeName, $experimentName, 
+					$courseName, $availability, $timeIncrement, $youtube, $state, $description, $mID);
 				mysqli_stmt_execute($stmt);
 				header("Location: ../microscopeconfig.php");
 				exit();
