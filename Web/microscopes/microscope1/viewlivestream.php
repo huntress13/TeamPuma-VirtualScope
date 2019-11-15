@@ -8,18 +8,19 @@
 
   //Get the microscope name and query the database for microscope information
   $microscopeName = getMyMicroscopeName(dirname(__FILE__));
-  $sql = "SELECT experiment_name, course_name, availability, youtube, description FROM microscopes WHERE microscope_name = ?";
+  $sql = "SELECT experiment_name, course_name, availability, youtube, description, state FROM microscopes WHERE microscope_name = ?";
   $stmt = mysqli_stmt_init($conn);
   mysqli_stmt_prepare($stmt, $sql);
   mysqli_stmt_bind_param($stmt, "s", $microscopeName);
   mysqli_stmt_execute($stmt);
-  if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3, $col4, $col5)){
+  if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3, $col4, $col5, $col6)){
           mysqli_stmt_fetch($stmt);
           $experimentName = $col1; //Define the experiment name
           $className = $col2; // Define the course name
           $availability = $col3; // Define the availability
           $youtube = $col4; // Define the youtube link
           $description = $col5; // Define the description
+          $state = $col6; // Get the state
           
           // Close the statement
           mysqli_stmt_close($stmt);
@@ -29,6 +30,11 @@
   
   // Close connection
   mysqli_close($conn);
+
+  if($state == "inactive"){
+    header("Location: ../microscopenotavailable.php");
+  }
+
 ?>
 
 <!DOCTYPE html>
