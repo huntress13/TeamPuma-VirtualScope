@@ -47,12 +47,14 @@
                             if(mysqli_num_rows($result) > 0){
                                     echo "<table class=\"table table-striped text-center\">";
                                         echo "<tr>";
-                                            echo "<th class=\"text-center\">Microscope name</th>";
-                                            echo "<th class=\"text-center\">Experiment name</th>";
-                                            echo "<th class=\"text-center\">Course name</th>";
-                                            echo "<th class=\"text-center\">Availability</th>";
+                                            echo "<th class=\"text-center\">Microscope</th>";
+                                            echo "<th class=\"text-center\">Experiment</th>";
+                                            echo "<th class=\"text-center\">Course</th>";
+                                            echo "<th class=\"text-center\">Dates</th>";
                                             echo "<th class=\"text-center\">Photo Interval</th>";
+                                            echo "<th class=\"text-center\">Youtube</th>";
                                             echo "<th class=\"text-center\">State</th>";
+                                            echo "<th class=\"text-center\">Description</th>";
                                             echo "<th class=\"text-center\"></th>";
                                         echo "</tr>";
                                     while($row = mysqli_fetch_array($result)){
@@ -64,7 +66,9 @@
                                                 echo "<td>" . $row['course_name'] . "</td>";
                                                 echo "<td>" . $row['availability'] . "</td>";
                                                 echo "<td>" . $row['picture_time_increment'] . "</td>";
+                                                echo "<td><a href=\"" . $row['youtube'] . "\">View</a></td>";
                                                 echo "<td>" . $row['state'] . "</td>";
+                                                echo "<td>" . substr($row['description'], 0, 7) . "...</td>";
                                                 
                                                 
                                                 echo "<td><button type=\"submit\" class=\"btn\" name=\"editscope-submit\">Edit</button></td>";

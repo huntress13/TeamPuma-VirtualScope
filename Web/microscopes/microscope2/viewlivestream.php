@@ -2,23 +2,25 @@
   require '../../includes/sessionsconfig.inc.php';
   require '../../includes/dbh.inc.php';
   require '../../includes/functions.inc.php';
-
   if(!$loggedIn){
     header("Location: ../../loginpage.php");
   }
 
   //Get the microscope name and query the database for microscope information
   $microscopeName = getMyMicroscopeName(dirname(__FILE__));
-  $sql = "SELECT experiment_name, course_name, availability FROM microscopes WHERE microscope_name = ?";
+  $sql = "SELECT experiment_name, course_name, availability, youtube, description, state FROM microscopes WHERE microscope_name = ?";
   $stmt = mysqli_stmt_init($conn);
   mysqli_stmt_prepare($stmt, $sql);
   mysqli_stmt_bind_param($stmt, "s", $microscopeName);
   mysqli_stmt_execute($stmt);
-  if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3)){
+  if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3, $col4, $col5, $col6)){
           mysqli_stmt_fetch($stmt);
           $experimentName = $col1; //Define the experiment name
           $className = $col2; // Define the course name
           $availability = $col3; // Define the availability
+          $youtube = $col4; // Define the youtube link
+          $description = $col5; // Define the description
+          $state = $col6; // Get the state
           
           // Close the statement
           mysqli_stmt_close($stmt);
@@ -28,6 +30,11 @@
   
   // Close connection
   mysqli_close($conn);
+
+  if($state == "inactive"){
+    header("Location: ../microscopenotavailable.php");
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +65,7 @@
         <div class="card-body">
           <div class="videoWrapper">
             <!-- Put YOUTUBE link below -->
-            <iframe width="560" height="349" src="https://www.youtube.com/embed/live_stream?channel=UCHnYxq3EFkmzcnPAu_D1TIA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="349" src="<?php echo $youtube; ?>" frameborder="0" allowfullscreen></iframe>
           </div>
           <hr>
           <button class="btn" name ="viewphoto-submit" type="submit" onclick="window.location.href='./viewphotos.php'">View Archived Photos</button>
@@ -66,20 +73,9 @@
         </div>
       </div>
       <div class="card" style="margin-top: 30px; margin-bottom: 30px">
-        <div class="card-header">Cell Division</div>
+        <div class="card-header"><?php echo $experimentName; ?></div>
         <div class="card-body">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean nec ligula risus. Proin orci libero, scelerisque et vulputate nec, blandit vitae urna. 
-           Nunc enim eros, lacinia non iaculis in, sagittis eget dui. Integer interdum gravida libero, a vestibulum mauris tempor varius. Sed turpis neque, vestibulum
-            eu fermentum vitae, ullamcorper quis tellus. Suspendisse vulputate vitae lorem luctus pellentesque. Vestibulum magna tortor, mollis eu ex ut, congue placerat
-             lectus. Nunc malesuada, risus vitae eleifend consectetur, ex sem scelerisque arcu, quis convallis purus quam sed eros. In pharetra velit quis aliquam 
-             condimentum. Nunc vel tincidunt lectus. In id massa nec orci ultrices vehicula vitae vitae nulla.
-            <br/><br/>
-           Ut porta elit non vestibulum mattis. Ut pretium interdum neque, quis facilisis nisl ultricies blandit. In hac habitasse platea dictumst. Aenean ex sapien, 
-           pellentesque eget magna vulputate, tristique interdum dolor. In feugiat, nisi semper eleifend viverra, neque lectus auctor erat, aliquet pharetra odio urna at justo.
-            Donec tincidunt purus a nisi interdum porttitor. Aenean hendrerit semper urna, vitae pellentesque justo hendrerit at. Phasellus pharetra laoreet lorem, sit amet
-             tincidunt massa aliquet nec. Ut quis lacus maximus, mollis sem nec, hendrerit massa. Proin id ligula at lorem eleifend varius. Aenean quis cursus mi, vel euismod massa.
-              Duis dictum purus et dolor sodales, id malesuada felis dignissim. Fusce maximus magna sit amet diam rutrum tristique. Sed malesuada tempus justo non sollicitudin.
-               Aenean metus neque, commodo eu consequat ac, blandit in diam.</p>
+          <?php echo $description; ?>
         </div>
       </div>
     </div>
