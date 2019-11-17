@@ -1,3 +1,4 @@
+import sys
 import os
 import subprocess
 import ftplib
@@ -8,15 +9,8 @@ import mysql.connector
 from mysql.connector import Error
 import datetime
 
-#Define time formatting function
-def format_time(minutes):
-    secs = minutes * 60
-    mins, secs = divmod(secs, 60)
-    hours, mins = divmod(mins, 60)
-    return '%02d:%02d:%02d ' % (hours, mins, secs)
-
-#Define the microscope name !!IMPORTANT!!
-my_name = 'microscope1'
+#Define the microscope name !!IMPORTANT it comes from terminal argument
+my_name = sys.argv[1]
 
 #Establish the database connection
 try:
@@ -28,9 +22,11 @@ try:
   if connection.is_connected():
     #Select the time increment from the microscopes table
     cursor = connection.cursor()
-    select_stmt = "SELECT picture_time_increment FROM microscopes WHERE microscope_name = %(microscope_name)s"
+    select_stmt = "SELECT picture_time_increment, youtube FROM microscopes WHERE microscope_name = %(microscope_name)s"
     cursor.execute(select_stmt, { 'microscope_name': my_name })
-    time_increment = cursor.fetchone()[0]
+    info = cursor.fetchone()
+    time_increment = info[0]
+    stream_link = info[1]
 
 #Error connecting -> Use default time_increment
 except Error as e:
@@ -51,13 +47,6 @@ ftp.connect(host, port)
 ftp.login("teampuma","1#%ekd%YlaG*")
 ftp.cwd("public_html/microscopes/" + my_name + "/images/")
 
-#The interval between images in HH:MM:SS format
-#The SPACE at the end is important!
-image_interval = format_time(time_increment)
-
-#Youtube stream link
-stream_link = "rtmp://a.rtmp.youtube.com/live2/0d18-twub-tqg7-3t7w"
-
 #The concatonated command for streaming
 stream_command = "raspivid -o - -t 0 -w 1280 -h 720 -fps 30 -b 6000000 | ffmpeg -re -f s16le -ac 2 -i /dev/zero -f h264 -i - -vcodec copy -g 50 -strict experimental -f flv " + stream_link
 
@@ -74,7 +63,7 @@ while True:
   #Define picture path and capture photo
   now = datetime.datetime.now() #Get timestamp
   picture_name = now.strftime("date_%m-%d-%Y_time_%H-%M-%S.jpg") #format image name
-  picture_path = pic_folder + picture_name
+  picture_path = pic_folder + "current_image.jpg"
   camera = PiCamera()
   sleep(0.75)
   camera.capture(picture_path, resize=(1230, 924)) #take pictue and resize

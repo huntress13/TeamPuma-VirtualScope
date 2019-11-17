@@ -37,23 +37,24 @@
     <div class="container">
 
 <!-- Add class password -->
- <div class="container" style="margin-top:1px">
+ <div class="container" style="margin-bottom:10px">
       <h5>Add Class Password</h5>
         <form id="add-password" class="form-inline" action="includes/classpassword.inc.php" method="post">
         <div class="form-group">
-          <input type="text" name = "course_name" placeholder="Course Name" class="form__input" />
+          <input type="text" name = "course_name" placeholder="Course Name" class="form-control" />
         </div>
         <div class="form-group">
-          <input type="text" name = "section" placeholder="Section" class="form__input" />
+          <input type="text" name = "section" placeholder="Section" class="form-control" />
         </div>
         <div class="form-group">
-          <input type="text" name = "class_password" placeholder="Class Password" class="form__input" />
+          <input type="text" name = "class_password" placeholder="Class Password" class="form-control" />
         </div>
         <div class="form-group">
-          <button class="btn" name="addcpwd-submit" type="submit" class="form__input" >Submit</button>
+          <button class="btn" name="addcpwd-submit" type="submit" class="form-control" >Submit</button>
         </div>
         </form>
 </div>
+
 <!--Delete class password-->
 <div class="card" style="margin-bottom:30px">
 
