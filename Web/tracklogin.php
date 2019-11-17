@@ -36,18 +36,26 @@
     <div class="container">
 
 <!-- Seach by StarID -->
- <div class="container" style="margin-top:1px">
+ <div class="container" style="margin-bottom:10px">
       <h5>Search by StarID</h5>
         <form id="search-login" class="form-inline" action="tracklogin.php" method="post">
         <div class="form-group">
-          <input type="text" name = "star_ID" placeholder="StarID" class="form__input" />
+          <input type="text" name = "star_ID" placeholder="StarID" class="form-control" />
         </div>
         <div class="form-group">
-          <button class="btn" name="search-submit" type="submit" class="form__input" >Search</button>
+          <button class="btn" name="search-submit" type="submit" class="form-control" >Search</button>
         </div>
         </form>
 </div>
-<!--Display search result-->
+
+<!--Display search result if searched-->
+<?php
+
+//Begin if
+if (isset($_POST['search-submit'])) { 
+    include "includes/dbh.inc.php";
+    ?>
+
 <div class="card" style="margin-bottom:30px">
 
         <div class="card-header">
@@ -58,9 +66,7 @@
             <div class="container">
                 <div class="row">
                     <div class="table-responsive">
-                    <?php include "includes/dbh.inc.php";
-
-                      if (isset($_POST['search-submit'])) {
+                    <?php
                     	//fetch info from admin
                     	$starID = $_POST['star_ID'];
                         $sql = "SELECT first_name, last_name, star_id, user_type, timestamp FROM logins, users
@@ -100,13 +106,17 @@
                         mysqli_close($conn);
 
 
-                      }
+                      
                         ?>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <?php
+     //End if statement 
+    } ?>
 
     <div class="card" style="margin-bottom:30px">
     <div class="card-header">
