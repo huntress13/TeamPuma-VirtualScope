@@ -63,7 +63,7 @@ while True:
   #Define picture path and capture photo
   now = datetime.datetime.now() #Get timestamp
   picture_name = now.strftime("date_%m-%d-%Y_time_%H-%M-%S.jpg") #format image name
-  picture_path = pic_folder + picture_name
+  picture_path = pic_folder + "current_image.jpg"
   camera = PiCamera()
   sleep(0.75)
   camera.capture(picture_path, resize=(1230, 924)) #take pictue and resize
