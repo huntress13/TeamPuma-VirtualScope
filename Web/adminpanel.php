@@ -37,16 +37,17 @@
     <div class="card-body">
         <div class="container">
           <dl class="row">
-            <dt class="col-sm-3"><button type="submit" class="btn" name="classpasswords"  onclick="window.location.href='classpasswordpage.php'">Class Passwords</button></dt>
+            <dt class="col-sm-3"><button type="submit" class="btn" name="classpasswords" onclick="window.location.href='classpasswordpage.php'">Class Passwords</button></dt>
             <dd class="col-sm-9 my-auto">View and modify class passwords</dd>
           
-            <dt class="col-sm-3"><button type="submit" class="btn" name="userlogins"  onclick="window.location.href='tracklogin.php'">Logins</button></dt>
-            <dd class="col-sm-9 my-auto">
-              Track user logins
-            </dd>
+            <dt class="col-sm-3"><button type="submit" class="btn" name="userlogins" onclick="window.location.href='tracklogin.php'">Logins</button></dt>
+            <dd class="col-sm-9 my-auto">Track user logins</dd>
           
-            <dt class="col-sm-3"><button type="submit" class="btn" name="configuremicroscopes"  onclick="window.location.href='microscopeconfig.php'">Microscopes</button></dt>
+            <dt class="col-sm-3"><button type="submit" class="btn" name="configuremicroscopes" onclick="window.location.href='microscopeconfig.php'">Microscopes</button></dt>
             <dd class="col-sm-9 my-auto">View and configure microscopes</dd>
+
+            <dt class="col-sm-3"><button type="submit" class="btn" name="modifystudents" onclick="window.location.href='students.php'">Students</button></dt>
+            <dd class="col-sm-9 my-auto">View and modify students</dd>
           </dl>
         </div>
     </div>
