@@ -97,6 +97,8 @@
     </div>
 </div>
 
+<!-- Footer -->
+<?php include 'footer.php' ?>
 
 <?php 
     // Close connection

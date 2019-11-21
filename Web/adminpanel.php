@@ -20,7 +20,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="styles/loginpage-style.css">
   <link rel="stylesheet" href="styles/navbar-style.css">
-  <link rel="stylesheet" href="styles/adminpage-style.css">
 </head>
 
 <body>
@@ -54,9 +53,9 @@
   </div>
 </div>
 
+<!-- Footer -->
+<?php include 'footer.php' ?>
+
 </body>
 
 </html>
-
-
-
