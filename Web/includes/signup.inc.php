@@ -19,7 +19,7 @@ if (isset($_POST['signup-submit'])) {
 	//if exist the code will count the rows
 	//the value should always be 1
 	if (!empty($classpwd)) {
-		$sql = "SELECT class_password from class_passwords where class_password=?";
+		$sql = "SELECT course_name, section from class_passwords where class_password=?";
 		$stmt = mysqli_stmt_init($conn);
 		if(!mysqli_stmt_prepare($stmt, $sql)){
 			header("Location: ../signup.php?error=sqlerror");
@@ -36,8 +36,16 @@ if (isset($_POST['signup-submit'])) {
 			//by storing results in $stmt
 			mysqli_stmt_store_result($stmt);
 			$classPwdCheck = mysqli_stmt_num_rows($stmt);
+			if(mysqli_stmt_bind_result($stmt, $col1, $col2)){
+				mysqli_stmt_fetch($stmt);
+				$course = $col1;
+				$section = $col2;
+			}else{
+				header("Location: ../signup.php?error=loginqueryfailed");
+			}
 			//should be 1 if classpassword matches
 		}
+
 	//user input error handling
 	//checks to see if fields are empty
 	if(empty($username) || empty($firstname) || empty($password) ||empty($starid) || empty($lastname) ||empty($passwordRepeat) || empty($classpwd)){
@@ -55,10 +63,11 @@ if (isset($_POST['signup-submit'])) {
 		//make sure the user does not use a username already in used
 		//done in a safe way with prepared statement without risking security
 		//done so with place holder ?
-		$sql = "SELECT username FROM users WHERE username=?";
+
+		$sql2 = "SELECT username FROM users WHERE username=?";
 		$stmt = mysqli_stmt_init($conn);
 
-		if(!mysqli_stmt_prepare($stmt, $sql)){
+		if(!mysqli_stmt_prepare($stmt, $sql2)){
 			header("Location: ../signup.php?error=sqlerror");
 			exit();
 		}else{
@@ -78,7 +87,7 @@ if (isset($_POST['signup-submit'])) {
 				header("Location: ../signup.php?error=usertaken&starid=".$starid);
 				exit();
 			}else{
-				$sql = "INSERT INTO users (first_name, last_name, star_id, password, username, user_type) VALUES (?,?,?,?,?,?)";
+				$sql = "INSERT INTO users (first_name, last_name, star_id, password, username, user_type, course_name, section) VALUES (?,?,?,?,?,?,?,?)";
 				$stmt = mysqli_stmt_init($conn);
 
 				if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -89,7 +98,7 @@ if (isset($_POST['signup-submit'])) {
 					//hashing with b crypt
 					//don't use outdated hasing such as SHA or MD6
 					$hashPwd = password_hash($password, PASSWORD_DEFAULT);
-					mysqli_stmt_bind_param($stmt, "ssssss", $firstname, $lastname, $starid, $hashPwd,$username, $userType);
+					mysqli_stmt_bind_param($stmt, "ssssssss", $firstname, $lastname, $starid, $hashPwd,$username, $userType, $course, $section);
 					mysqli_stmt_execute($stmt);
 
 					header("Location: ../index.php");
@@ -101,6 +110,8 @@ if (isset($_POST['signup-submit'])) {
 	}
 	msqli_stmt_close($stmt);
 	msqli_close($conn);
+	/* close statement */
+	//$stmt1->close();
 }
 else{
 	//if user did not access the page through the normal way without clicking the signup button
