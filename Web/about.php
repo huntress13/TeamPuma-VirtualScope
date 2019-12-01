@@ -34,7 +34,7 @@
   <div class="row">
     <div class="col-md-6">
       <img src="<?php echo $homepath?>images/cindy_harley.jpg" width=260 height=260 class="mx-auto d-block">
-      <h3 class="text-center">Team Puma</h3>
+      <h3 class="text-center">Professor Cindy Harley</h3>
       <p>The inception of VirtualScope began with Professor Cindy Harley. Professor Harley is an Assistant Professor of Natural Sciences at Metropolitan State University. While teaching, she found that it was hard for students to come in and observe microscopic contents on a regular basis. She saw that students needed a way to view microscope contents while not at school. With that in mind, she wanted to have some sort of live stream of the microscope content but did not have the knowledge on how to implement her idea. Professor Harley contacted a professor in the Computer Science field and was able to get connected to a group of students that would bring her idea to fruition. <br/> 
     </div>
 

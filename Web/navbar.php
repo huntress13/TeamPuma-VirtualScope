@@ -11,7 +11,7 @@ $homepath = 'http://'.$_SERVER['SERVER_NAME'].'/';
   <div class="collapse navbar-collapse" id="collapsibleNavbar">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="<?php echo $homepath?>index.php">About</a>
+        <a class="nav-link" href="<?php echo $homepath?>about.php">About</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?php echo $homepath?>homepage.php">Experiments</a>
