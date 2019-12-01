@@ -107,7 +107,7 @@ if (isset($_POST['delete-submit'])) {
             <div class="row">
                 <div class="table-responsive">
                 <?php include "includes/dbh.inc.php";
-                    $sql = "SELECT first_name, last_name, star_id, user_type FROM users
+                    $sql = "SELECT first_name, last_name, star_id, username, user_type FROM users
                                ORDER BY first_name;";
                     //$i = 0;
                     if($result = mysqli_query($conn, $sql)){
@@ -117,6 +117,7 @@ if (isset($_POST['delete-submit'])) {
                                         echo "<th class=\"text-center\">First Name</th>";
                                         echo "<th class=\"text-center\">Last name</th>";
                                         echo "<th class=\"text-center\">StarID</th>";
+                                        echo "<th class=\"text-center\">Username</th>";
                                         echo "<th class=\"text-center\">User Type</th>";
                                     echo "</tr>";
                                 while($row = mysqli_fetch_array($result)){
@@ -125,6 +126,7 @@ if (isset($_POST['delete-submit'])) {
                                             echo "<td>" . $row['first_name'] . "</td>";
                                             echo "<td>" . $row['last_name'] . "</td>";
                                             echo "<td>" . $row['star_id'] . "</td>";
+                                            echo "<td>" . $row['username'] . "</td>";
                                             echo "<td>" . $row['user_type'] . "</td>";
                                         echo "</tr>";
                             }
