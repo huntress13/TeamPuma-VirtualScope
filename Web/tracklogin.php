@@ -83,7 +83,7 @@
         </form>
           <br>
           <br>
-          <p>See ONE user's login history by date range format of MM/DD/YYYY</p>
+          <p>See ONE user's login history by date range in the format of MM/DD/YYYY</p>
           <form id="search-date-one" class="form-inline" action="tracklogin.php" method="post">
           <div class="form-group">
             <input type="text" name = "dateFirstName" placeholder="First Name" class="form-control" />
