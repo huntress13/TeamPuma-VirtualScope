@@ -20,6 +20,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="styles/loginpage-style.css">
   <link rel="stylesheet" href="styles/navbar-style.css">
+  <link rel="stylesheet" href="styles/adminpage-style.css">
 </head>
 
 <body>
@@ -37,7 +38,7 @@
     <div class="card-body">
         <div class="container">
           <dl class="row">
-            <dt class="col-sm-3"><button type="submit" class="btn" name="classpasswords"  onclick="window.location.href='classpasswordpage.php'">Class Passwords</button></dt>
+            <dt class="col-sm-3"><button type="submit" class="btn" name="classpasswords" onclick="window.location.href='classpasswordpage.php'">Class Passwords</button></dt>
             <dd class="col-sm-9 my-auto">View and modify class passwords</dd>
 
             <dt class="col-sm-3"><button type="submit" class="btn" name="userlogins"  onclick="window.location.href='tracklogin.php'">Logins</button></dt>
@@ -52,6 +53,7 @@
 
             <dt class="col-sm-3"><button type="submit" class="btn" name="configuremicroscopes"  onclick="window.location.href='microscopeconfig.php'">Microscopes</button></dt>
             <dd class="col-sm-9 my-auto">View and configure microscopes</dd>
+
           </dl>
         </div>
     </div>
