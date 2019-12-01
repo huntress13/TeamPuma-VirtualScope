@@ -46,9 +46,9 @@
               Track user logins
             </dd>
 
-            <dt class="col-sm-3"><button type="submit" class="btn" name="deleteuser"  onclick="window.location.href='deleteuser.php'">Delete User</button></dt>
+            <dt class="col-sm-3"><button type="submit" class="btn" name="users"  onclick="window.location.href='modifyuser.php'">User Accounts</button></dt>
             <dd class="col-sm-9 my-auto">
-              Delete user account
+              Modify user accounts
             </dd>
 
             <dt class="col-sm-3"><button type="submit" class="btn" name="configuremicroscopes"  onclick="window.location.href='microscopeconfig.php'">Microscopes</button></dt>
