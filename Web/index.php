@@ -38,9 +38,10 @@
       <h2>What is VirtualScope?</h2>
       <p>VirtualScope is your gateway to accessing Biological experiments from anywhere!
          Here we have a sample being viewed using either a 10x, 40x, or 100x oil objective on our microscope coming to you
-          through the internet via a Raspberry Pi. Experiments often require a test case as well as a control which means 
+          through the internet via a Raspberry Pi. Experiments often require a test case as well as a control which means
           we are capable of viewing multiple microscopes at the same time which may be receiving different treatments.
-           To learn more about these see our current list of what each scope is viewing,<br/> <a href="homepage.php"><h2>click here!<h2></a></p>
+           To learn more about these see our current list of what each scope is viewing.<br/>
+           <a href="homepage.php"><b><h2>Click here!<h2></b></a></p>
     </div>
     <div class="col-md-6">
       <div class="videoWrapper">
