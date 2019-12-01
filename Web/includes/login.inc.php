@@ -62,7 +62,10 @@ if(isset($_POST['login-submit'])){
 				}
 
 			/* close statement */
-			//$stmt->close();
+			$stmt->close();
+
+			msqli_stmt_close($stmt);
+			msqli_close($conn);
 
 
 	}
