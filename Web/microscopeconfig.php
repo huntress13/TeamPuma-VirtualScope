@@ -51,8 +51,8 @@
                                             echo "<th class=\"text-center\">Experiment</th>";
                                             echo "<th class=\"text-center\">Course</th>";
                                             echo "<th class=\"text-center\">Dates</th>";
-                                            echo "<th class=\"text-center\">Photo Interval</th>";
                                             echo "<th class=\"text-center\">Youtube</th>";
+                                            echo "<th class=\"text-center\">Photo Interval</th>";
                                             echo "<th class=\"text-center\">State</th>";
                                             echo "<th class=\"text-center\">Description</th>";
                                             echo "<th class=\"text-center\"></th>";
@@ -65,10 +65,26 @@
                                                 echo "<td>" . $row['experiment_name'] . "</td>";
                                                 echo "<td>" . $row['course_name'] . "</td>";
                                                 echo "<td>" . $row['availability'] . "</td>";
-                                                echo "<td>" . $row['picture_time_increment'] . "</td>";
-                                                echo "<td><a style=\"color: red\" href=\"" . $row['youtube'] . "\"><i class=\"fab fa-youtube fa-2x\"></i></a></td>";
-                                                echo "<td>" . $row['state'] . "</td>";
-                                                echo "<td>" . substr($row['description'], 0, 7) . "...</td>";
+
+                                                if($row['youtube']){
+                                                    echo "<td><a style=\"color: red\" href=\"" . $row['youtube'] . "\"><i class=\"fab fa-youtube fa-2x\"></i></a></td>";
+                                                } else{
+                                                    echo '<td></td>';
+                                                }
+                                                echo "<td> Every " . $row['picture_time_increment'] . " minutes</td>";
+                                                if($row['state'] == 'active'){
+                                                    echo "<td><i style=\"color: green\" class=\"fa fa-check fa-2x\"></i></td>";
+                                                }else if($row['state'] == 'inactive'){
+                                                    echo "<td><i style=\"color: red\" class=\"fa fa-times fa-2x\"></i></td>";
+                                                }else{
+                                                    echo "<td>" . $row['state'] . "</td>";
+                                                }
+                                                
+                                                if(strlen($row['description']) < 10){
+                                                    echo "<td>" . $row['description'] . "</td>";
+                                                } else{
+                                                    echo "<td>" . substr($row['description'], 0, 7) . "...</td>";
+                                                }
                                                 
                                                 
                                                 echo "<td><button type=\"submit\" class=\"btn\" name=\"editscope-submit\">Edit</button></td>";

@@ -53,7 +53,7 @@
                         mysqli_stmt_prepare($stmt, $sql);
                         mysqli_stmt_bind_param($stmt, "s", $scopeID);
                         mysqli_stmt_execute($stmt);
-                        if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8, $col9)){
+                        if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3, $col4, $col5, $col6, $col7, $col8, $col9, $col10)){
                                 mysqli_stmt_fetch($stmt);
                                 $microscopeName = $col2; //Define the microscope name
                                 $experimentName = $col3; //Define the experiment name
@@ -61,8 +61,9 @@
                                 $availability = $col5; // Define the availability
                                 $photoInterval = $col6; // Define the photo interval
                                 $youtube = $col7; // Define the youtube link
-                                $state = $col8; // Define the state
-                                $description = $col9; //Define description
+                                $youtubeStream = $col8; // Define the youtube link
+                                $state = $col9; // Define the state
+                                $description = $col10; //Define description
                                 
                                 // Close the statement
                                 mysqli_stmt_close($stmt);
@@ -97,6 +98,11 @@
                                     <label for="pwd">Youtube Link:</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" id="youtube" value="'. $youtube .'" name="youtube" required>
+                                        <div class="invalid-feedback">Please fill out this field.</div>
+                                    </div>
+                                    <label for="youtube_stream">Youtube RTMP Stream Link (For Raspberry Pi):</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="youtube_stream" value="'. $youtubeStream .'" name="youtube_stream" required>
                                         <div class="invalid-feedback">Please fill out this field.</div>
                                     </div>
                                     <label for="pwd">Photo Interval:</label>
