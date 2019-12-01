@@ -32,11 +32,11 @@
         <a href="adminpanel.php" style="float: right;">Back to admin panel</a>
     </div>
 
-  <div class="card-body">
+  <div class="card-body" style="min-height: 60vh">
     <div class="container">
 
 <!-- Seach by StarID -->
- <div class="container" style="margin-bottom:10px">
+ <div style="margin-bottom:10px">
         <!-- <form id="search-login" class="form-inline" action="tracklogin.php" method="post">
         <div class="form-group">
           <input type="text" name = "star_ID" placeholder="StarID" class="form-control" />
@@ -61,6 +61,8 @@
           <form id="search-name" class="form-inline" action="tracklogin.php" method="post">
           <div class="form-group">
             <input type="text" name = "firstName" placeholder="First Name" class="form-control" />
+          </div>
+          <div class="form-group">
             <input type="text" name = "lastName" placeholder="Last Name" class="form-control" />
           </div>
           <div class="form-group">
@@ -75,6 +77,8 @@
           <form id="search-date-all" class="form-inline" action="tracklogin.php" method="post">
           <div class="form-group">
             <input type="text" name = "allStartDate" placeholder="Start Date" class="form-control" />
+          </div>
+          <div class="form-group">
             <input type="text" name = "allEndDate" placeholder="End Date" class="form-control" />
           </div>
           <div class="form-group">
@@ -82,13 +86,18 @@
           </div>
         </form>
           <br>
-          <br>
           <p>See ONE user's login history by date range in the format of MM/DD/YYYY</p>
           <form id="search-date-one" class="form-inline" action="tracklogin.php" method="post">
           <div class="form-group">
             <input type="text" name = "dateFirstName" placeholder="First Name" class="form-control" />
+          </div>
+          <div class="form-group">
             <input type="text" name = "dateLastName" placeholder="Last Name" class="form-control" />
+          </div>
+          <div class="form-group">
             <input type="text" name = "oneStartDate" placeholder="Start Date" class="form-control" />
+          </div>
+          <div class="form-group">
             <input type="text" name = "oneEndDate" placeholder="End Date" class="form-control" />
           </div>
           <div class="form-group">
@@ -107,7 +116,6 @@
           </div>
           </form>
         </div>
-</div>
 
 <?php if(isset($_POST['search-all']) ||isset($_POST['search-name']) || isset($_POST['search-date-one']) || isset($_POST['search-date-all'])){
   include "includes/dbh.inc.php";
@@ -317,7 +325,7 @@
 <?php
   }
   ?>
-
+</div>
 </body>
 </html>
 
@@ -348,13 +356,16 @@ function openTab(evt, name) {
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  border-bottom: 1px solid #ccc; 
+  margin-bottom: 10px;
+  background-color: #fff;
 }
 
 /* Style the buttons that are used to open the tab content */
 .tab button {
   background-color: inherit;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   float: left;
   border: none;
   outline: none;
@@ -365,19 +376,20 @@ function openTab(evt, name) {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #ddd;
+  background-color: #eee;
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: #A2C7E5;
+  color: #FFF;
 }
 
 /* Style the tab content */
 .tabcontent {
   display: none;
   padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
+  /* border: 1px solid #ccc;
+  border-top: none; */
 }
 </style>
