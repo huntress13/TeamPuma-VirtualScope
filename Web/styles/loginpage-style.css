@@ -260,3 +260,13 @@ body {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
+
+a{
+  color: #A2C7E5;
+}
+
+a:hover{
+  color: #49D49D;
+  text-decoration: none;
+}
