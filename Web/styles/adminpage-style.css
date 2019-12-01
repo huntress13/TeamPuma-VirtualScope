@@ -1,0 +1,38 @@
+
+  button {	
+    border-radius: 8px;	
+    background-color: grey;	
+    border: none;	
+    color: white;	
+    padding: 10px 10px;	
+    text-align: center;	
+    display: inline-block;	
+    font-size: 20px;	
+    margin: 10px;	
+  } 
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 20px;
+    font-family: "Roboto";
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    color: white;
+    background: #A2C7E5;
+    transition: 0.3s;
+  }
+  .btn:hover {
+    color: white;
+    background: #49D49D;
+  }
+  
+    a{
+        color: #49D49D;
+    }
+
+    a:hover{
+        color: #A2C7E5;
+        text-decoration: none;
+    }

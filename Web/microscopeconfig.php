@@ -66,7 +66,7 @@
                                                 echo "<td>" . $row['course_name'] . "</td>";
                                                 echo "<td>" . $row['availability'] . "</td>";
                                                 echo "<td>" . $row['picture_time_increment'] . "</td>";
-                                                echo "<td><a href=\"" . $row['youtube'] . "\">View</a></td>";
+                                                echo "<td><a style=\"color: red\" href=\"" . $row['youtube'] . "\"><i class=\"fab fa-youtube fa-2x\"></i></a></td>";
                                                 echo "<td>" . $row['state'] . "</td>";
                                                 echo "<td>" . substr($row['description'], 0, 7) . "...</td>";
                                                 
