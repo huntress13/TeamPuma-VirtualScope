@@ -7,6 +7,8 @@
   }
   //Get microscope name
   $microscopeName = getMyMicroscopeName(dirname(__FILE__));
+
+
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +36,19 @@
     <div class="card" style="margin-bottom:30px">
 
         <div class="card-header">
-            Images from <?php echo ucfirst($microscopeName) ?>
-            <a href="./viewlivestream.php" style="float: right;">View the stream</a>
+            Images from <?php echo ucfirst($microscopeName) ?><span style="float: right;">
+            <a href="./viewlivestream.php">View the stream</a><br/>
+            <?php
+                if($userType == 'admin'){
+                    echo 'Admin Only: ';
+                    echo '<form class="form-inline" id="clear-photos" method="POST" action="../../includes/clearphotos.inc.php">
+                            <input type="hidden" id="clear" name="clear" value="clear">
+                            <input type="hidden" id="'.$microscopeName.'" name="'.$microscopeName.'" value="'.$microscopeName.'">
+                            <button type="submit" name="clearphotos-submit">ClearPhotos</button>
+                        </form>';
+                }
+            ?>
+            </span>
         </div>
 
         <div class="card-body">
@@ -51,7 +64,7 @@
 </div>
 
 <!-- Footer -->
-<?php include 'footer.php' ?>
+<?php include '../../footer.php' ?>
 
 </body>
 </html>

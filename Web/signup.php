@@ -32,22 +32,28 @@
 </div>
 
 <div class="container" style="margin-top:30px">
-<div class ="row justify-content-center">
-<div class="col-xs-12 col-md-6">
-    <form class="form-signup" action="includes/signup.inc.php" method="post">
-      <div class="form__group">
-              <input type="text" name = "firstname" placeholder="First Name" class="form__input" />
-              <input type="text" name = "lastname" placeholder="Last Name" class="form__input" />
-              <input type="text" name = "starid" placeholder="StarId" class="form__input" />
-              <input type="password" name="classpwd" placeholder="Class Password" class="form__input" />
-              <input type="text" name = "uid" placeholder="Username" class="form__input" />
-              <input type="password" name = "pwd" placeholder="Password" class="form__input" />
-              <input type="Password" name = "pwd-repeat" placeholder="Repeat Password" class="form__input" />
+  <div class ="row justify-content-center">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">Create Account</div>
+        <div class="card-body">
+          <form class="form-signup" action="includes/signup.inc.php" method="post">
+            <div class="form__group">
+                    <input type="text" name = "firstname" placeholder="First Name" class="form__input" />
+                    <input type="text" name = "lastname" placeholder="Last Name" class="form__input" />
+                    <input type="text" name = "starid" placeholder="StarId" class="form__input" />
+                    <input type="password" name="classpwd" placeholder="Class Password" class="form__input" />
+                    <input type="text" name = "uid" placeholder="Username" class="form__input" />
+                    <input type="password" name = "pwd" placeholder="Password" class="form__input" />
+                    <input type="Password" name = "pwd-repeat" placeholder="Repeat Password" class="form__input" />
+              </div>
+              <br/>
+                    <button class="btn" name = "signup-submit" type="submit">Register for VirtualScope!</button>
+          </form>
         </div>
-              <button class="btn" name = "signup-submit" type="submit">Submit</button><br>
-    </form>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Footer -->

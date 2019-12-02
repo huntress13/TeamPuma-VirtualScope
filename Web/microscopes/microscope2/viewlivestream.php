@@ -32,7 +32,7 @@
   mysqli_close($conn);
 
   if($state != "active"){
-    header("Location: ../microscopenotavailable.php");
+    header("Location: ../../microscopeunavailable.php");
   }
 
 ?>

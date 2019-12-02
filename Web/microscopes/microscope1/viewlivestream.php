@@ -32,7 +32,7 @@
   mysqli_close($conn);
 
   if($state != "active"){
-    header("Location: ../microscopenotavailable.php");
+    header("Location: ../../microscopeunavailable.php");
   }
 
 ?>
@@ -105,7 +105,7 @@
 </div>
 
 <!-- Footer -->
-<?php include 'footer.php' ?>
+<?php include '../../footer.php' ?>
 
 </body>
 </html>

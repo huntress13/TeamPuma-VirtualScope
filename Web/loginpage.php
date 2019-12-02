@@ -45,14 +45,14 @@
               <div class="invalid-feedback">Please fill out this field.</div>
           </div>
             <label for="pwd">Password:</label>
-            <div class="input-group mb-2">
+            <div class="input-group mb-3">
               <div class="input-group-append">
 								<span class="input-group-text"><i class="fas fa-key"></i></span>
 							</div>
               <input type="password" class="form-control" id="pwd" placeholder="Type your password" name="pwd" required>
               <div class="invalid-feedback">Please fill out this field.</div>
             </div>
-            <button type="submit" class="btn" name="login-submit">Submit</button>
+            <button type="submit" class="btn mb-3" name="login-submit">Submit</button>
           </form>
           <div class="container text-right">
           Dont have an account? <a href="signup.php">Sign up here!</a>
