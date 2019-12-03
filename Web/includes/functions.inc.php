@@ -37,7 +37,7 @@ function displayLatest($directory, $number){
 }
 
 function getMyMicroscopeName($url){
-    $array = explode("/", $url);
+    $array = explode("/", str_replace('\\','/',$url));
     $count = count($array); 
     return $array[$count-1];
 }

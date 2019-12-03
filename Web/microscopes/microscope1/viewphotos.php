@@ -36,23 +36,21 @@
     <div class="card" style="margin-bottom:30px">
 
         <div class="card-header">
-            Images from <?php echo ucfirst($microscopeName) ?><span style="float: right;">
-            <a href="./viewlivestream.php">View the stream</a><br/>
-            <?php
-                if($userType == 'admin'){
-                    echo 'Admin Only: ';
-                    echo '<form class="form-inline" id="clear-photos" method="POST" action="../../includes/clearphotos.inc.php">
-                            <input type="hidden" id="clear" name="clear" value="clear">
-                            <input type="hidden" id="'.$microscopeName.'" name="'.$microscopeName.'" value="'.$microscopeName.'">
-                            <button type="submit" name="clearphotos-submit">ClearPhotos</button>
-                        </form>';
-                }
-            ?>
-            </span>
+            Images from <?php echo ucfirst($microscopeName) ?>
+            <ul style="list-style: none; float: right; display:inline; margin-bottom:0;">
+                <li style="display:inline"><a href="./viewlivestream.php">View the stream</a></li>
+            </ul>
         </div>
 
         <div class="card-body">
             <div class="container">
+                <?php
+                // Link to delete photos. The link object toggles the modal and is passed the 
+                // microscope name to be pulled out by the jquery function down below.
+                // Admin ONLY
+                if($userType == 'admin'){
+                    echo '<a href="#" style="float:right" data-microscope="'.$microscopeName.'" data-toggle="modal" data-target="#confirm-delete">Delete all photos</a><br/>';
+                } ?>
                 <div class="row justify-content-center">
                     <?php
                         displayImages('./images');
@@ -63,8 +61,53 @@
     </div>
 </div>
 
+<!-- Modal to delete photos. This remains hidden until the link above is clicked and is toggled by it's id -->
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header mx-auto">
+                WARNING
+            </div>
+            <div class="modal-body mx-auto">
+                This will delete all photos for this microscope. This cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <!-- Button class of .btn ok is what gets assigned the data and consequently delivers the .post -->
+                <button type="button" class="btn btn-danger btn-ok">Delete</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Footer -->
 <?php include '../../footer.php' ?>
+
+<!-- js and jquery for hidden modal with POST capabilities -->
+<script>
+
+// Bind to modal opening to set necessary data properties
+$('#confirm-delete').on('show.bs.modal', function(e) {
+    var data = $(e.relatedTarget).data(); // pull out to a variable the button.data stuff (passed in with data-***** in the html tag)
+    $('.btn-ok', this).data('microscope_name', data.microscope); //Assigns data.microscope from above to 'microscope_name'
+});
+
+// POST on clicking okay
+$('#confirm-delete').on('click', '.btn-ok', function(e) {
+    var $modalDiv = $(e.delegateTarget);
+    var microscope = $(this).data('microscope_name'); // pull out the microscope name. 'microscope_name' is where we saved it above.
+
+    // Data to be POSTed in .json format
+    var data = {microscope_name : microscope}
+
+    $modalDiv.addClass('loading');
+    $.post("../../includes/clearphotos.inc.php", data).then(function() { //POST the data
+        $modalDiv.modal('hide').removeClass('loading');
+    });
+
+});
+
+</script>
 
 </body>
 </html>
