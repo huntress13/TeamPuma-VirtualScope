@@ -85,25 +85,28 @@
 
 <!-- js and jquery for hidden modal with POST capabilities -->
 <script>
+
+// Bind to modal opening to set necessary data properties
+$('#confirm-delete').on('show.bs.modal', function(e) {
+    var data = $(e.relatedTarget).data(); // pull out to a variable the button.data stuff (passed in with data-***** in the html tag)
+    $('.btn-ok', this).data('microscope_name', data.microscope); //Assigns data.microscope from above to 'microscope_name'
+});
+
+// POST on clicking okay
 $('#confirm-delete').on('click', '.btn-ok', function(e) {
     var $modalDiv = $(e.delegateTarget);
-    var microscope = $(this).data('microscope_name');
+    var microscope = $(this).data('microscope_name'); // pull out the microscope name. 'microscope_name' is where we saved it above.
 
-    // Data to be POSTed 
+    // Data to be POSTed in .json format
     var data = {microscope_name : microscope}
 
     $modalDiv.addClass('loading');
-    $.post("../../includes/clearphotos.inc.php", data).then(function() {
+    $.post("../../includes/clearphotos.inc.php", data).then(function() { //POST the data
         $modalDiv.modal('hide').removeClass('loading');
     });
 
 });
 
-// Bind to modal opening to set necessary data properties
-$('#confirm-delete').on('show.bs.modal', function(e) {
-    var data = $(e.relatedTarget).data();
-    $('.btn-ok', this).data('microscope_name', data.microscope);
-});
 </script>
 
 </body>
