@@ -238,7 +238,7 @@ function confirmDelete(name)
   if (r == false) {
     document.getElementById(name).reset();
   }
-
+}
 function confirmUpdate(name)
  {
    var x;
@@ -246,7 +246,6 @@ function confirmUpdate(name)
    if (r == false) {
      document.getElementById(name).reset();
    }
- }
 }
 
 </script>
