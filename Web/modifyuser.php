@@ -5,6 +5,8 @@
   }
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -205,6 +207,68 @@
 <?php
   }
   ?>
+</div>
+<div class="card" style="margin-bottom:30px">
+
+        <div class="card-header">
+            Existing User Accounts
+        </div>
+
+        <div class="card-body">
+            <div class="container">
+                <div class="row">
+                    <div class="table-responsive">
+                    <?php include "includes/dbh.inc.php";
+                        $sql = "SELECT first_name, last_name, course_name, section, star_id, username, user_type FROM users
+                                  ORDER BY first_name";
+                        $i = 0;
+                        if($result = mysqli_query($conn, $sql)){
+                            $numberOfRows = mysqli_num_rows($result);
+                            if(mysqli_num_rows($result) > 0){
+                                    echo "<table class=\"table table-striped text-center\">";
+                                        echo "<tr>";
+                                            echo "<th class=\"text-center\">First Name</th>";
+                                            echo "<th class=\"text-center\">Last Name</th>";
+                                            echo "<th class=\"text-center\">Course Name</th>";
+                                            echo "<th class=\"text-center\">Section</th>";
+                                            echo "<th class=\"text-center\">Star ID</th>";
+                                            echo "<th class=\"text-center\">Username</th>";
+                                            echo "<th class=\"text-center\">User Type</th>";
+                                        echo "</tr>";
+                                    while($row = mysqli_fetch_array($result)){
+                                        // echo "<form id=\"useraccount-form". $i++ ."\" method=\"POST\" action=\"includes/modifyuser.inc.php\" class=\"form-horizontal\">";
+                                        //     echo '<input type="hidden" id="classpasswordID" name="cpid" value="'. $row['cpid'] . '">';
+                                        //     echo "<tr>";
+                                                echo "<td>" . $row['first_name'] . "</td>";
+                                                echo "<td>" . $row['last_name'] . "</td>";
+                                                echo "<td>" . $row['course_name'] . "</td>";
+                                                echo "<td>" . $row['section'] . "</td>";
+                                                echo "<td>" . $row['star_id'] . "</td>";
+                                                echo "<td>" . $row['username'] . "</td>";
+                                                echo "<td>" . $row['user_type'] . "</td>";
+                                            echo "</tr>";
+                                        echo "</form>";
+
+                                }
+                                echo "</table>";
+                                // Free result set
+                                mysqli_free_result($result);
+                            } else{
+                                echo "No records matching your query were found.";
+                            }
+                        } else{
+                            echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
