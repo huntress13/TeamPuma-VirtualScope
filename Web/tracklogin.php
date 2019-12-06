@@ -28,7 +28,7 @@
 <div class="container" style="margin-top:30px">
   <div class="card" style="margin-bottom:30px">
     <div class="card-header">
-        VirtualScope User Login History
+        Login History
         <a href="adminpanel.php" style="float: right;">Back to admin panel</a>
     </div>
 
@@ -356,7 +356,7 @@ function openTab(evt, name) {
 /* Style the tab */
 .tab {
   overflow: hidden;
-  border-bottom: 1px solid #ccc; 
+  border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
   background-color: #fff;
 }
