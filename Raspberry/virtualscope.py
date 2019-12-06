@@ -22,7 +22,7 @@ try:
   if connection.is_connected():
     #Select the time increment from the microscopes table
     cursor = connection.cursor()
-    select_stmt = "SELECT picture_time_increment, youtube FROM microscopes WHERE microscope_name = %(microscope_name)s"
+    select_stmt = "SELECT picture_time_increment, youtube_stream FROM microscopes WHERE microscope_name = %(microscope_name)s"
     cursor.execute(select_stmt, { 'microscope_name': my_name })
     info = cursor.fetchone()
     time_increment = info[0]
