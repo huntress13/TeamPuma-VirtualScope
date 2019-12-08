@@ -18,9 +18,8 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="styles/loginpage-style.css">
-  <link rel="stylesheet" href="styles/navbar-style.css">
   <link rel="stylesheet" href="styles/adminpage-style.css">
+  <link rel="stylesheet" href="styles/navbar-style.css">
 </head>
 
 <body>
@@ -38,20 +37,20 @@
     <div class="card-body">
         <div class="container">
           <dl class="row">
-            <dt class="col-sm-3"><button type="submit" class="btn" name="classpasswords" onclick="window.location.href='classpasswordpage.php'">Class Passwords</button></dt>
+            <dt class="col-sm-3"><button type="submit" class="btn big" name="classpasswords" onclick="window.location.href='classpasswordpage.php'">Class Passwords</button></dt>
             <dd class="col-sm-9 my-auto">View and modify class passwords</dd>
 
-            <dt class="col-sm-3"><button type="submit" class="btn" name="userlogins"  onclick="window.location.href='tracklogin.php'">Logins</button></dt>
+            <dt class="col-sm-3"><button type="submit" class="btn big" name="userlogins"  onclick="window.location.href='tracklogin.php'">Logins</button></dt>
             <dd class="col-sm-9 my-auto">
               Track user logins
             </dd>
 
-            <dt class="col-sm-3"><button type="submit" class="btn" name="users"  onclick="window.location.href='modifyuser.php'">User Accounts</button></dt>
+            <dt class="col-sm-3"><button type="submit" class="btn big" name="users"  onclick="window.location.href='modifyuser.php'">User Accounts</button></dt>
             <dd class="col-sm-9 my-auto">
               Modify user accounts
             </dd>
 
-            <dt class="col-sm-3"><button type="submit" class="btn" name="configuremicroscopes"  onclick="window.location.href='microscopeconfig.php'">Microscopes</button></dt>
+            <dt class="col-sm-3"><button type="submit" class="btn big" name="configuremicroscopes"  onclick="window.location.href='microscopeconfig.php'">Microscopes</button></dt>
             <dd class="col-sm-9 my-auto">View and configure microscopes</dd>
 
           </dl>

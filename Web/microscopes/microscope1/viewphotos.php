@@ -1,13 +1,40 @@
 <?php
   require '../../includes/sessionsconfig.inc.php';
+  require '../../includes/dbh.inc.php';
   require '../../includes/functions.inc.php';
 
   if(!$loggedIn){
     header("Location: ../../loginpage.php");
   }
-  //Get microscope name
-  $microscopeName = getMyMicroscopeName(dirname(__FILE__));
 
+  //Get the microscope name and query the database for microscope information
+  $microscopeName = getMyMicroscopeName(dirname(__FILE__));
+  $sql = "SELECT experiment_name, course_name, availability, youtube, description, state FROM microscopes WHERE microscope_name = ?";
+  $stmt = mysqli_stmt_init($conn);
+  mysqli_stmt_prepare($stmt, $sql);
+  mysqli_stmt_bind_param($stmt, "s", $microscopeName);
+  mysqli_stmt_execute($stmt);
+  if(mysqli_stmt_bind_result($stmt, $col1, $col2, $col3, $col4, $col5, $col6)){
+          mysqli_stmt_fetch($stmt);
+          $experimentName = $col1; //Define the experiment name
+          $className = $col2; // Define the course name
+          $availability = $col3; // Define the availability
+          $youtube = $col4; // Define the youtube link
+          $description = $col5; // Define the description
+          $state = $col6; // Get the state
+          
+          // Close the statement
+          mysqli_stmt_close($stmt);
+  } else{
+      echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+  }
+  
+  // Close connection
+  mysqli_close($conn);
+
+  if($userType !='admin' && $state != "active"){
+    header("Location: ../../microscopeunavailable.php");
+  }
 
 ?>
 
@@ -23,7 +50,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="../../styles/photopage-style.css">
+  <link rel="stylesheet" href="../../styles/streampage-style.css">
   <link rel="stylesheet" href="../../styles/navbar-style.css">
 </head>
 <body>
@@ -49,7 +76,13 @@
                 // microscope name to be pulled out by the jquery function down below.
                 // Admin ONLY
                 if($userType == 'admin'){
-                    echo '<a href="#" style="float:right" data-microscope="'.$microscopeName.'" data-toggle="modal" data-target="#confirm-delete">Delete all photos</a><br/>';
+                    echo '<div class="row">';
+                    echo '<div class="col">';
+                    echo '<div class="float-right">';
+                    echo '<button class="btn float-right" id="deletebtn" data-microscope="'.$microscopeName.'" data-toggle="modal" data-target="#confirm-delete">Delete all photos</button><br/>';
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
                 } ?>
                 <div class="row justify-content-center">
                     <?php

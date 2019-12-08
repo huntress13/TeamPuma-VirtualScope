@@ -31,7 +31,7 @@
   // Close connection
   mysqli_close($conn);
 
-  if($state != "active"){
+  if($userType !='admin' && $state != "active"){
     header("Location: ../../microscopeunavailable.php");
   }
 
