@@ -29,7 +29,7 @@
 
 <!-- Content -->
 <div class="container" style="margin-top:30px">
-    <div class="card" style="margin-bottom:30px">
+    <div class="card" style="margin-bottom:30px; min-height:70vh">
 
         <div class="card-header">
             Microscope Unavailable!
