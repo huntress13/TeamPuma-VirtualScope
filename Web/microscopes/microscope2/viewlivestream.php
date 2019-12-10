@@ -31,7 +31,7 @@
   // Close connection
   mysqli_close($conn);
 
-  if($state != "active"){
+  if($userType !='admin' && $state != "active"){
     header("Location: ../../microscopeunavailable.php");
   }
 
@@ -65,7 +65,7 @@
         <div class="card-body">
           <div class="videoWrapper">
             <!-- Put YOUTUBE link below -->
-            <iframe width="560" height="349" src="https://www.youtube.com/embed/live_stream?channel=UCHnYxq3EFkmzcnPAu_D1TIA" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="349" src="<?php echo $youtube ?>" frameborder="0" allowfullscreen></iframe>
           </div>
           <hr>
           <button class="btn" name ="viewphoto-submit" type="submit" onclick="window.location.href='./viewphotos.php'">View Archived Photos</button>
@@ -95,10 +95,9 @@
         <div class="card-header">Latest Images</div>
         <div class="card-body">
           <a href="viewphotos.php" style="margin-top: -10px; float: right;">View all</a><br/>
-          <?php
-            displayLatest('./images', 3);
-
-            ?>
+          <?php 
+          // Most recent images. parameters are (folder, number of images)
+          displayLatest('./images', 3); ?>
         </div>
       </div>
     </div>
@@ -106,7 +105,7 @@
 </div>
 
 <!-- Footer -->
-<?php include 'footer.php' ?>
+<?php include '../../footer.php' ?>
 
 </body>
 </html>
